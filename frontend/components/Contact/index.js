@@ -4,16 +4,14 @@ const Contact = () => {
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
-    const [open4, setOpen4] = useState(false);
-    const [open5, setOpen5] = useState(false);
 
     return (
         <div className=" lg:container lg:mx-auto lg:py-16 md:py-12 md:px-6 py-12 px-4">
             <h1 className="text-center lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 dark:text-white font-semibold">FAQ&apos;s</h1>
 
-            <div role="listitem" className="bg-white dark:bg-gray-800 cursor-pointer shadow rounded-lg mt-3 flex relative z-30 w-1/2 mx-auto">
+            <div role="listitem" className="bg-white dark:bg-gray-800 cursor-pointer shadow rounded-lg mt-3 flex relative w-1/2 mx-auto">
                 <div className="w-2.5  h-auto bg-indigo-700 rounded-tl-md rounded-bl-md" />
-                <div className="w-full p-8">
+                <div className="w-full p-8 break-all">
                     <div className="md:flex items-center justify-between">
                         <h2 className="text-2xl font-semibold leading-6 text-gray-800 dark:text-white">Contact</h2>
                         

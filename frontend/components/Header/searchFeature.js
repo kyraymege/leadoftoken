@@ -30,7 +30,7 @@ const SearchFeature = () => {
     }, [searchTerm])
 
     return (
-        <div>
+        <div className='hidden lg:block'>
             <div className="relative">
                 <input
                     className="relative text-sm leading-none text-gray-600  bg-gray-200  dark:bg-gray-400  rounded lg:max-w-[452px] w-full px-10 py-4 outline-none flex-grow"

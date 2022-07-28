@@ -118,9 +118,9 @@ function TokenDetails({ token }) {
                             <div className="w-full items-start flex  p-6  justify-between">
                                 <div className="flex flex-col">
                                     <div className="w-full items-start flex lg:flex-row flex-col gap-x-6">
-                                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white">{tokenn[0]?.token_name}</h1>
-                                        <p className="text-3xl font-thin mt-1 text-gray-400">${tokenn[0]?.token_symbol}</p>
-                                        <span className="w-px h-10 bg-gray-300" />
+                                        <h1 className="text-2xl lg:text-2xl font-bold text-gray-900 dark:text-white">{tokenn[0]?.token_name}</h1>
+                                        <p className="text-xl lg:text-3xl font-thin mt-1 text-gray-400">${tokenn[0]?.token_symbol}</p>
+                                        <span className="w-px h-10 bg-gray-300 hidden lg:block" />
                                         <div onClick={handleWatchList} className="flex items-center gap-4">
                                             <AiTwotoneStar className="mt-2 hover:fill-yellow-300 fill-gray-300 cursor-pointer" size={30} />
                                             <p className="mt-2 text-xl text-gray-400 cursor-pointer">Add to Watchlist</p>
@@ -225,9 +225,9 @@ function TokenDetails({ token }) {
                                         </>} */}
                                 </div>
 
-                                <div onClick={() => handleVote(tokenn[0]?._id)} className="px-6 xl:block">
+                                <div onClick={() => handleVote(tokenn[0]?._id)} className="">
                                     <div className="flex  items-center">
-                                        <span className="py-3 px-4 rounded hover:bg-white bg-gray-100 dark:text-gray-200 dark:hover:text-white dark:bg-gray-700 dark:border-b-4 dark:border-gray-900 dark:hover:bg-gray-900 flex flex-col items-center cursor-pointer hover:scale-125">
+                                        <span className="py-3 w-8 lg:w-12 rounded hover:bg-white bg-gray-100 dark:text-gray-200 dark:hover:text-white dark:bg-gray-700 dark:border-b-4 dark:border-gray-900 dark:hover:bg-gray-900 flex flex-col items-center cursor-pointer hover:scale-125">
                                             <BiUpArrow />
                                             <h1 className="font-bold text-center">{tokenn[0]?.vote}</h1>
                                         </span>
@@ -240,11 +240,11 @@ function TokenDetails({ token }) {
                         </div>
                         <div className="dark:bg-gray-900 mt-20">
                             <div className="pb-20">
-                                <div className="mx-auto bg-gradient-to-l from-indigo-600 to-indigo-700 h-96 rounded-2xl">
+                                <div className="mx-auto bg-gradient-to-l from-indigo-600 to-indigo-700 lg:h-96 h-56 rounded-2xl">
                                     <div className="mx-auto container w-full flex flex-col justify-center items-center">
                                         <div className="flex justify-center items-center flex-col">
                                             <div className="mt-20">
-                                                <h2 className="lg:text-6xl md:text-5xl text-4xl font-black leading-10 text-white">EXPLORE OTHER TOKENS</h2>
+                                                <h2 className="lg:text-6xl md:text-5xl text-2xl font-black leading-10 text-white">EXPLORE OTHER TOKENS</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -254,8 +254,8 @@ function TokenDetails({ token }) {
                                         {randomTokens?.map((token, key) => {
                                             return (
                                                 <div onClick={() => router.push("/token/" + token?._id)} key={key} className="flex justify-center flex-col items-center w-36 h-36 md:w-44 md:h-48 lg:w-56 lg:h-56 bg-white dark:bg-gray-800 shadow rounded-2xl cursor-pointer">
-                                                    <img src={PF + token?.token_image} className="object-contain w-24 h-24 rounded-full" />
-                                                    <p className="mt-4 text-sm md:text-base lg:text-lg leading-none font-bold text-center text-gray-600 dark:text-white">{token?.token_name}</p>
+                                                    <img src={PF + token?.token_image} className="object-contain lg:w-24 lg:h-24 w-12 h-12 rounded-full" />
+                                                    <p className="mt-4 text-sm md:text-base lg:text-lg leading-none font-bold text-center text-gray-600 dark:text-white ">{token?.token_name}</p>
                                                     <p className="mt-4 text-sm md:text-base lg:text-lg leading-none text-center text-gray-600  dark:text-white">{token?.token_network}</p>
                                                 </div>
                                             )

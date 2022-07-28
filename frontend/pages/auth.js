@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
-import Auth from "../components/Auth/login"
+import LoginComponent from "../components/Auth/LoginComponent";
 import Header from "../components/Header";
 import { ToastContainer } from 'react-toastify'
 import Head from "next/head";
@@ -15,7 +15,7 @@ function Login() {
             <div className="dark:bg-gray-900  flex flex-col items-center">
                 <Header />
                 <div className="flex flex-col w-full ">
-                    <Auth />
+                    <LoginComponent />
                 </div>
                 <ToastContainer />
                 <Footer />

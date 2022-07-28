@@ -22,7 +22,7 @@ const Header = () => {
                     </Link>
                 </div>
                 {/* Logo Section End*/}
-                
+
                 <div className='flex items-center justify-center'>
                     {theme == 'dark' &&
                         <button onClick={() => setTheme('light')} className='p-1 rounded-full bg-gray-700'>
@@ -33,7 +33,7 @@ const Header = () => {
                             <MdDarkMode size={24} fill="white" />
                         </button>}
                 </div>
-                <SearchFeature/>
+                <SearchFeature />
                 <div>
                     <button onClick={() => setShow(!show)} className={`${show ? 'hidden' : ''} sm:block md:hidden text-gray-500 hover:text-gray-700 focus:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500`}>
                         <svg aria-haspopup="true" aria-label="open Main Menu" xmlns="http://www.w3.org/2000/svg" className="md:hidden icon icon-tabler icon-tabler-menu" width={24} height={24} viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round">
@@ -42,7 +42,7 @@ const Header = () => {
                             <line x1={4} y1={16} x2={20} y2={16} />
                         </svg>
                     </button>
-                    
+
                     <div id="menu" className={` ${show ? '' : 'hidden'} md:block lg:block `}>
                         <button onClick={() => setShow(!show)} className={`block md:hidden lg:hidden text-gray-500 hover:text-gray-700 focus:text-gray-700 fixed focus:outline-none focus:ring-2 focus:ring-gray-500 z-30 top-0 mt-6`}>
                             <svg aria-label="close main menu" xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -52,7 +52,7 @@ const Header = () => {
                             </svg>
                         </button>
                         <ul className="flex text-3xl md:text-base items-center py-10 md:flex flex-col md:flex-row justify-center fixed md:relative top-0 bottom-0 left-0 right-0 bg-white md:bg-transparent z-20">
-                            
+
                             <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-125  cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0">
                                 <Link href="/AddToken">
                                     <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Add Token</h1>
@@ -63,11 +63,22 @@ const Header = () => {
                                     <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Contact</h1>
                                 </Link>
                             </li>
-                            
+                            {currentUser == null ?
+                                <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-125 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
+                                    <Link href="/auth">
+                                        <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Sign In</h1>
+                                    </Link>
+                                </li>
+                                :
+                                <div className='lg:hidden mt-10'>
+                                <UserAvatar />
+                                </div>
+                            }
+
                         </ul>
                     </div>
                 </div>
-                
+
                 {currentUser ?
                     <div className='hidden lg:block'>
                         <UserAvatar />
@@ -75,7 +86,7 @@ const Header = () => {
                     :
                     <button onClick={() => router.push("/auth")} className="focus:outline-none lg:text-lg lg:font-bold focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 hidden md:block bg-transparent transition duration-150 ease-in-out hover:bg-gray-200 rounded border border-indigo-700 text-indigo-700 px-4 sm:px-8 py-1 sm:py-3 text-sm">Sign In</button>
                 }
-                
+
             </div>
         </nav>
     )

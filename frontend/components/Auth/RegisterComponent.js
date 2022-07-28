@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import {toast} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { register } from "../../redux/apiCalls";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router'
 
-export default function Register() {
+export default function RegisterComponent() {
     const [showpass, setShowPass] = useState(false);
     const [showpass1, setShowPass1] = useState(false);
     const [email, setEmail] = useState("");

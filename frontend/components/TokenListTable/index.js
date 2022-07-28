@@ -93,9 +93,9 @@ function TokenListTable() {
                             </div>
 
                             <div onClick={() => router.push("/token/" + todayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-gray-900 bg-gray-300 py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
-                                <div className="w-16 h-16">
+                                <div className="w-16 h-16">                                    
                                     <img className="w-full h-full rounded-full" src={todayBestToken?.token_image == "/logo.png" ? todayBestToken?.token_image : PF + todayBestToken?.token_image} />
-                                </div>
+                                    </div>
                                 <div className="flex flex-col">
                                     <h1 className="text-xl font-bold">Today&apos;s Best Token</h1>
                                     <p className="">{todayBestToken?.token_name}</p>
