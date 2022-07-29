@@ -14,10 +14,7 @@ const PORT = process.env.PORT || 8800;
 const app = express();
 
 app.use(cookieParser());
-app.use(cors({
-    origin: true,
-    credentials: true,
-}));
+app.use(cors());
 app.use(express.json());
 app.use("/api/token", tokenRoute);
 app.use("/api/auth", authRoute);
