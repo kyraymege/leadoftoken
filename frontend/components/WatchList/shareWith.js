@@ -6,7 +6,7 @@ import { FaTwitterSquare } from "react-icons/fa"
 function ShareWith({ user }) {
     const [show, setshow] = useState(false);
     const copyToClipboard = () => {
-        var text = "http://localhost:3000/watchlist/"+user;
+        var text = "https://www.leadoftoken.com/watchlist/"+user;
         var elem = document.createElement("textarea");
         document.body.appendChild(elem);
         elem.value = text;

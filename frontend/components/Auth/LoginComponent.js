@@ -103,7 +103,7 @@ export default function LoginComponent() {
                                 </div>
                             </div>
                         </div>
-                        {error ?
+                        {error==true ?
                             <div className="bg-red-300 p-3 rounded-lg mt-6">
                                 <p className="text-gray-700">Please check your Email and Password. It may be an incorrect or used mail.</p>
                             </div>
