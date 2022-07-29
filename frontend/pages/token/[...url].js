@@ -25,10 +25,15 @@ const TokenPage = ({ params }) => {
     )
 }
 
-export function getServerSideProps(context) {
+export async function getStaticProps(context) {
+    return { props: { params:context.params } };
+  }
+  
+export async function getStaticPaths() {
     return {
-        props: { params: context.params }
-    };
-}
+      paths: [],
+      fallback: 'blocking' // can also be true or 'blocking'
+    }
+  }
 
 export default TokenPage
