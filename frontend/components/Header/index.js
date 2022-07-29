@@ -66,7 +66,7 @@ const Header = () => {
                             {currentUser == null ?
                                 <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-125 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
                                     <Link href="/auth">
-                                        <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Sign In</h1>
+                                        <h1 className='lg:hidden underline underline-offset-8 decoration-double decoration-indigo-400'>Sign In</h1>
                                     </Link>
                                 </li>
                                 :
