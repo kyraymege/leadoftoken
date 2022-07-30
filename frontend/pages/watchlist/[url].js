@@ -15,6 +15,9 @@ const WatchListPage = ({ params }) => {
         <meta name="LeadOfToken" content="Cryptocurrency news" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Head>
+        <meta name="description" content="To take advantage of the privileges of Lead Of Token, you can create your own watch list by logging in immediately and share it with your friends or followers!" />
+      </Head>
       <div className="dark:bg-gray-900 w-full flex flex-col items-center">
         <Header />
         <ToastContainer />
@@ -26,7 +29,7 @@ const WatchListPage = ({ params }) => {
 }
 
 export async function getStaticProps(context) {
-  return { props: { params:context.params } };
+  return { props: { params: context.params } };
 }
 
 export async function getStaticPaths() {

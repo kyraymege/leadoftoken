@@ -11,6 +11,9 @@ export default function AddToken() {
                 <title>Lead Of Token | Add Token</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
+            <Head>
+                <meta name="description" content="Add new token to Lead Of Token.Please fill out this form carefully to add a new token to Lead Of Token." />
+            </Head>
             <div className="dark:bg-gray-900 w-full flex flex-col items-center">
                 <Header />
                 <ToastContainer />

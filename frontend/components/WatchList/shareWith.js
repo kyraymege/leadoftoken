@@ -23,7 +23,7 @@ function ShareWith({ user }) {
                 >
                     {show && (
                         <ul className="p-2 w-40 border-r bg-white absolute rounded z-40 right-0 shadow mt-16  top-0">
-                            <li onClick={() => window.open('https://twitter.com/intent/tweet?text=%F0%9F%94%A5%F0%9F%94%A5%20Here%20is%20my%20awesome%20Watch%20List%20%F0%9F%94%A5%F0%9F%94%A5%0A%0A%E2%9E%A1%EF%B8%8Fhttp%3A//localhost%3A3000/watchlist/' + user + '%0A%0A%23crypto%20%23leadoftoken%20%23mywatchlist', '', ' scrollbars=yes,menubar=no,width=600, height=400, resizable=yes,toolbar=no,location=no,status=no')}
+                            <li onClick={() => window.open('https://twitter.com/intent/tweet?text=%F0%9F%94%A5%F0%9F%94%A5%20Here%20is%20my%20awesome%20Watch%20List%20%F0%9F%94%A5%F0%9F%94%A5%0A%0A%E2%9E%A1%EF%B8%8Fhttps%3A//www%2Eleadoftoken%2Ecom/watchlist/' + user + '%0A%0A%23crypto%20%23leadoftoken%20%23mywatchlist', '', ' scrollbars=yes,menubar=no,width=600, height=400, resizable=yes,toolbar=no,location=no,status=no')}
                                 className="cursor-pointer text-gray-700 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
                                 <FaTwitterSquare size={20} className="fill-cyan-500" />
                                 <span className="ml-2 font-medium">Share with Twitter</span>

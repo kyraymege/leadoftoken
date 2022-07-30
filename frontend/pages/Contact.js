@@ -8,17 +8,20 @@ import Head from "next/head";
 const Contact = () => {
   return (
     <div className="flex flex-col ">
-    <Head>
+      <Head>
         <title>Lead Of Token | Contact </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <div className="dark:bg-gray-900 w-full flex flex-col items-center">
-    <Header />
-    <ToastContainer />
-    <ContactComp />
-    <Footer />
+      </Head>
+      <Head>
+        <meta name="description" content="This Page is Lead Of Token's contact page. You can contact with us" />
+      </Head>
+      <div className="dark:bg-gray-900 w-full flex flex-col items-center">
+        <Header />
+        <ToastContainer />
+        <ContactComp />
+        <Footer />
+      </div>
     </div>
-</div>
   )
 }
 

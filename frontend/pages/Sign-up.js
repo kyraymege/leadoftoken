@@ -12,12 +12,15 @@ function Signup() {
                 <title>Lead Of Token | Sign Up </title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
+            <Head>
+                <meta name="description" content="Feel the privileges of Lead Of Token by Signing up now." />
+            </Head>
             <div className="dark:bg-gray-900 w-full flex flex-col items-center">
                 <Header />
                 <ToastContainer />
                 <div className="flex flex-col w-full">
                     <RegisterComponent />
-                    
+
                 </div>
                 <Footer />
             </div>

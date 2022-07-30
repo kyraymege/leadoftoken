@@ -12,6 +12,9 @@ function Login() {
                 <title>Lead Of Token | Sign In </title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
+            <Head>
+                <meta name="description" content="You can Sign In immediately and Exlore Lead Of Token world!" />
+            </Head>
             <div className="dark:bg-gray-900  flex flex-col items-center">
                 <Header />
                 <div className="flex flex-col w-full ">

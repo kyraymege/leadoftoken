@@ -6,34 +6,37 @@ import Footer from '../../components/Footer';
 import { ToastContainer } from 'react-toastify'
 
 const TokenPage = ({ params }) => {
-    const { url } = params;
+  const { url } = params;
 
-    return (
-        <div className="flex flex-col ">
-            <Head>
-                <title>LeadOfToken | {url}</title>
-                <meta name="LeadOfToken" content="Cryptocurrency news" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <div className="dark:bg-gray-900 w-full flex flex-col items-center">
-                <Header />
-                <ToastContainer />
-                <TokenDetails token={url} />
-                <Footer />
-            </div>
-        </div>
-    )
+  return (
+    <div className="flex flex-col ">
+      <Head>
+        <title>LeadOfToken | {url}</title>
+        <meta name="LeadOfToken" content="Cryptocurrency news" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Head>
+        <meta name="description" content="You can get information about the token. With detailed listing information, Lead Of Token is always with you!" />
+      </Head>
+      <div className="dark:bg-gray-900 w-full flex flex-col items-center">
+        <Header />
+        <ToastContainer />
+        <TokenDetails token={url} />
+        <Footer />
+      </div>
+    </div>
+  )
 }
 
 export async function getStaticProps(context) {
-    return { props: { params:context.params } };
-  }
-  
+  return { props: { params: context.params } };
+}
+
 export async function getStaticPaths() {
-    return {
-      paths: [],
-      fallback: 'blocking' // can also be true or 'blocking'
-    }
+  return {
+    paths: [],
+    fallback: 'blocking' // can also be true or 'blocking'
   }
+}
 
 export default TokenPage

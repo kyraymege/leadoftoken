@@ -14,6 +14,9 @@ function Home() {
                 <title>Lead Of Token | Token Lists </title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
+            <Head>
+                <meta name="description" content="You can access all the listed tokens here!" />
+            </Head>
             <div className="dark:bg-gray-900 w-full flex flex-col items-center">            
             <Header />
             <ToastContainer/>                        
