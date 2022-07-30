@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: "propane-surfer-357023",
   storageBucket: "propane-surfer-357023.appspot.com",
   messagingSenderId: "303600005930",
-  appId: "1:303600005930:web:5ae73eed6ccc5c498fe453"
+  appId: "1:303600005930:web:7cef30562fa0f5a18fe453"
 };
 
 // Initialize Firebase
