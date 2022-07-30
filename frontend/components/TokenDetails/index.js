@@ -141,7 +141,7 @@ function TokenDetails({ token }) {
                                         }
                                     </div>
                                     <div className="flex gap-4 items-center py-6">
-                                        <a target="_blank" rel="noreferrer" href={tokenn[0]?.token_website}><SiWebflow size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" /></a>
+                                        <a target="_blank" rel="noreferrer" href={"https://"+tokenn[0]?.token_website}><SiWebflow size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" /></a>
                                         {!tokenn[0]?.token_telegram == "" &&
                                             <a target="_blank" rel="noreferrer" href={tokenn[0]?.token_telegram}>
                                                 <FaTelegramPlane size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" />
@@ -184,15 +184,15 @@ function TokenDetails({ token }) {
                                         {tokenn[0]?.isPresale == false ?
                                             <>
                                                 <div className="flex flex-col ">
-                                                    <h1 className="text-gray-400">Price <span className={toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd) < 0 ? 'text-red-500' : 'text-green-500'}>% {((toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd)) / toFixed(chart?.priceUsd) * 100).toFixed(2)}</span></h1>
+                                                    <p className="text-gray-400 text-sm lg:text-lg">Price <span className={toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd) < 0 ? 'text-red-500' : 'text-green-500'}>% {((toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd)) / toFixed(chart?.priceUsd) * 100).toFixed(2)}</span></p>
                                                     {chart == undefined ?
                                                         <p className="font-medium dark:text-white">${tokenn[0]?.token_price}</p> : <p className="font-medium">${toFixed(chart?.priceUsd)}</p>}
                                                 </div>
                                                 <span className="w-px h-10 bg-gray-300" />
                                                 <div className="flex flex-col ">
-                                                    <h1 className="text-gray-400">Market Cap</h1>
+                                                    <p className="text-gray-400">Market Cap</p>
                                                     {chart == undefined ?
-                                                        <p className="font-medium dark:text-white">${tokenn[0]?.token_marketcap}</p> : <p className="font-medium">${(Math.round(parseInt(chart?.marketCapUsd) * 100) / 100).toLocaleString()}</p>}
+                                                        <p className="font-medium dark:text-white text-sm lg:text-lg">${tokenn[0]?.token_marketcap}</p> : <p className="font-medium text-sm lg:text-lg">${(Math.round(parseInt(chart?.marketCapUsd) * 100) / 100).toLocaleString()}</p>}
                                                 </div>
                                             </>
                                             :
@@ -201,7 +201,7 @@ function TokenDetails({ token }) {
                                             </>}
                                         <span className="w-px h-10 bg-gray-300 " />
                                         <div className="flex flex-col ">
-                                            <h1 className="text-gray-400">Launch Date</h1>
+                                            <p className="text-gray-400">Launch Date</p>
                                             <p className="font-medium dark:text-gray-200">{tokenn[0]?.launchdate}</p>
                                         </div>
                                     </div>
@@ -218,11 +218,7 @@ function TokenDetails({ token }) {
                                             src={"https://coinbrain.com/embed/" + tokenn[0]?.token_contractAddress + "?theme=dark&chart=1&trades=1"}>
 
                                         </iframe>}
-                                    {/* {!tokenn[0]?.token_twitter == "" &&
-                                        <>
-                                            <a class="twitter-timeline" data-width="600" data-height="720" data-theme="dark" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> 
-                                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                        </>} */}
+                                    
                                 </div>
 
                                 <div onClick={() => handleVote(tokenn[0]?._id)} className="">
@@ -238,7 +234,7 @@ function TokenDetails({ token }) {
 
 
                         </div>
-                        <div className="dark:bg-gray-900 mt-20">
+                        <div className="dark:bg-gray-900 mt-20 px-4">
                             <div className="pb-20">
                                 <div className="mx-auto bg-gradient-to-l from-indigo-600 to-indigo-700 lg:h-96 h-56 rounded-2xl">
                                     <div className="mx-auto container w-full flex flex-col justify-center items-center">

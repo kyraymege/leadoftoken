@@ -26,18 +26,24 @@ function TokenListTable() {
             let page = router.query.p;
             let as = router.query.as;
             if (page && as) {
-
                 fetchAllTokens(dispatch, page, as)
+                
                 setTokenLength(getTokensLength())
+
                 getTodaysBestToken().then((res) => {
                     setTodayBestToken(res?.data?.[0])
                 })
+
                 getYesterdaysBestToken().then((res) => {
                     setYesterdayBestToken(res?.data?.[0])
                 })
-                getTokensLength().then((res) => {                    
+
+                getTokensLength().then((res) => {
                     setTokenLength(res?.data)
                 })
+
+
+
             }
         } catch (error) {
             console.log(error)
@@ -185,7 +191,7 @@ function TokenListTable() {
                     {tokenLength !== 0 &&
 
                         <div className="flex justify-center items-center mt-6">
-                            <Pagination                                
+                            <Pagination
                                 totalItems={tokenLength}
                                 itemsPerPage={5}
                                 withProgressBar={true}
