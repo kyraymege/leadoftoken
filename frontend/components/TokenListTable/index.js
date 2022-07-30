@@ -35,8 +35,7 @@ function TokenListTable() {
                 getYesterdaysBestToken().then((res) => {
                     setYesterdayBestToken(res?.data?.[0])
                 })
-                getTokensLength().then((res) => {
-                    console.log(res?.data)
+                getTokensLength().then((res) => {                    
                     setTokenLength(res?.data)
                 })
             }
