@@ -36,6 +36,7 @@ function TokenListTable() {
                     setYesterdayBestToken(res?.data?.[0])
                 })
                 getTokensLength().then((res) => {
+                    console.log(res?.data)
                     setTokenLength(res?.data)
                 })
             }
@@ -93,9 +94,9 @@ function TokenListTable() {
                             </div>
 
                             <div onClick={() => router.push("/token/" + todayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-gray-900 bg-gray-300 py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
-                                <div className="w-16 h-16">                                    
+                                <div className="w-16 h-16">
                                     <img className="w-full h-full rounded-full" src={todayBestToken?.token_image == "/logo.png" ? todayBestToken?.token_image : PF + todayBestToken?.token_image} />
-                                    </div>
+                                </div>
                                 <div className="flex flex-col">
                                     <h1 className="text-xl font-bold">Today&apos;s Best Token</h1>
                                     <p className="">{todayBestToken?.token_name}</p>
@@ -182,22 +183,24 @@ function TokenListTable() {
                             </table>
                         </>}
 
-                    <div className="flex justify-center items-center mt-6">
-                        <Pagination
-                            totalItems={tokenLength}
-                            itemsPerPage={3}
-                            withProgressBar={true}
-                            onPageСhange={(currentPage) => { router.push("/?p=" + currentPage + "&as=" + router.query.as); }}
-                            customClassNames={{
-                                rpbItemClassName: 'custom-item',
-                                rpbItemClassNameActive: 'custom-item--active',
-                                rpbGoItemClassName: 'custom-go-item',
-                                rpbItemClassNameDisable: 'custom-item--disable',
-                                rpbProgressClassName: 'custom-progress-bar',
-                                rpbRootClassName: 'custom-root',
-                            }}
-                        />
-                    </div>
+                    {tokenLength !== 0 &&
+
+                        <div className="flex justify-center items-center mt-6">
+                            <Pagination                                
+                                totalItems={tokenLength}
+                                itemsPerPage={5}
+                                withProgressBar={true}
+                                onPageСhange={(currentPage) => { router.push("/?p=" + currentPage + "&as=" + router.query.as); }}
+                                customClassNames={{
+                                    rpbItemClassName: 'custom-item',
+                                    rpbItemClassNameActive: 'custom-item--active',
+                                    rpbGoItemClassName: 'custom-go-item',
+                                    rpbItemClassNameDisable: 'custom-item--disable',
+                                    rpbProgressClassName: 'custom-progress-bar',
+                                    rpbRootClassName: 'custom-root',
+                                }}
+                            />
+                        </div>}
                 </div>
             </div>
         </>

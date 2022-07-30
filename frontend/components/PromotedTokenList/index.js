@@ -37,7 +37,7 @@ function PromotedTokenList() {
                         <h1 className="text-3xl font-extrabold dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r from-indigo-500 to-white">Promoted Tokens</h1>
                     </div>
                 </div>
-                <div className="bg-white dark:bg-slate-800 shadow px-4 md:px-10 pb-8 overflow-y-auto">
+                <div className="bg-white dark:bg-gray-800 shadow px-4 md:px-10 pb-8 overflow-y-auto">
                     <table className="w-full whitespace-nowrap">
                         <thead>
                             <tr className="h-16 w-full text-sm leading-none text-gray-800 dark:text-gray-400">

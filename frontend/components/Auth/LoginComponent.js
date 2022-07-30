@@ -25,7 +25,7 @@ export default function LoginComponent() {
 
     const signInWithGoogle = async () => {
         signInWithPopup(auth, googleProvider)
-            .then((result) => {
+            .then((result) => {                
                 loginWithGoogle(dispatch, result, router);
             }).catch((err) => {
                 console.log(err)

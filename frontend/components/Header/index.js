@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { MdDarkMode, MdLightMode } from "react-icons/md"
 import { useTheme } from "next-themes";
 import SearchFeature from './searchFeature';
-
 const Header = () => {
     const [show, setShow] = useState(false);
     const { theme, setTheme } = useTheme();
@@ -16,9 +15,9 @@ const Header = () => {
         <nav className="w-full container border-b border-white">
             <div className="py-5 md:py-0 dark:bg-gray-900 mx-auto px-6 flex items-center justify-between">
                 {/* Logo Section */}
-                <div className='cursor-pointer'>
+                <div className='cursor-pointer '>
                     <Link href="/">
-                        <h1 className='text-5xl font-black dark:text-white'>L<span className='text-indigo-700'>o</span>T</h1>
+                        <img className='h-16 w-20' src='/logo.png' alt='logo' />
                     </Link>
                 </div>
                 {/* Logo Section End*/}
@@ -71,7 +70,7 @@ const Header = () => {
                                 </li>
                                 :
                                 <div className='lg:hidden mt-10'>
-                                <UserAvatar />
+                                    <UserAvatar />
                                 </div>
                             }
 
