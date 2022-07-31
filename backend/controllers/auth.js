@@ -1,9 +1,6 @@
 const User = require("../models/user.js");
 const jwt = require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
-const VerificationToken = require("../models/verificationToken");
-const sendEmail = require("../utils/sendEmail");
-const crypto = require("crypto")
 
 //REGISTER
 const register = async (req, res, next) => {
@@ -19,14 +16,7 @@ const register = async (req, res, next) => {
     let existUserByMail = await User.findOne({ email: req.body.email });
     if (existUserByMail) return res.status(200).json("There is a registered user with this email address.");
 
-    const user = await newUser.save();
-
-    const verificationToken = await new VerificationToken({
-      userId: user._id,
-      token: crypto.randomBytes(32).toString("hex")
-    }).save();
-    const url = `https://www.leadoftoken.com/users/${user._id}/verify/${verificationToken.token}`;
-    await sendEmail(user.email, "Lead Of Token | Verify your Email", url)
+    await newUser.save();
 
     res.status(201).json({ message: "An Email send to your mail address. Please verify! ( Don't forget check spam folder)" });
   } catch (err) {
@@ -43,19 +33,6 @@ const login = async (req, res, next) => {
     const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
     const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
     if (originalPassword !== req.body.password) return res.status(400).json("Password is not matching!");
-
-    if (!user.isVerified) {
-      let token = await VerificationToken.findOne({ userId: user._id });
-      if (!token) {
-        const verificationToken = await new VerificationToken({
-          userId: user._id,
-          token: crypto.randomBytes(32).toString("hex")
-        }).save();
-        const url = `https://www.leadoftoken.com/users/${user._id}/verify/${verificationToken.token}`;
-        await sendEmail(user.email, "Lead Of Token | Verify your Email", url)
-      }
-      return res.status(200).json({ message: "An Email send to your mail address. Please verify! ( Don't forget check spam folder)" });
-    }
 
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, { expiresIn: "5d" });
     const { password, ...others } = user._doc;
