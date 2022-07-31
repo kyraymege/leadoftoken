@@ -1,5 +1,5 @@
 import { publicRequest} from "./requestMethods";
-import { loginFailure, loginStart, loginSuccess, logout, registerStart, registerSuccess, registerFailure } from "./authSlice"
+import { loginFailure, loginStart, loginSuccess, logout } from "./authSlice"
 import { fetchTokensStart,fetchTokensSuccess,fetchTokensFailure } from "./tokenSlice";
 import { toast } from "react-toastify";
 
@@ -9,8 +9,11 @@ export const register = async ( user, router) => {
     try {
         const res = await publicRequest.post("/auth/register", user);
         if(res){
-        toast.success("You have successfully registered");
-        router.push('/auth')}
+        toast.success(res?.data?.message);
+        }
+        setTimeout(() => {
+            router.push('/auth')
+        }, 3000)
     } catch (err) {
         toast.error(err);
     }
@@ -23,11 +26,8 @@ export const login = async (dispatch, user, router) => {
         const res = await publicRequest.post("/auth/login",  user);
         dispatch(loginSuccess(res.data));
         if (res.data) {
-            toast.success("You have successfully logged in");
-        }
-        setTimeout(() => {
-            router.push('/')
-        }, 1000)
+            toast.success(res?.data?.message);
+        }        
     } catch (err) {
         dispatch(loginFailure())
     }
@@ -191,6 +191,13 @@ export const getSearchedToken = async (searchTerm) =>{
     }
 }
 
+export const verifyEmailUrl = async (id,token) => {
+    try {
+        return await publicRequest.put("/user/"+id+"/verify/"+token);
+    } catch (error) {
+        console.log(error);        
+    }
+};
 
 
 

@@ -22,6 +22,14 @@ const userSchema = new mongoose.Schema({
         type: Object,
         ref: 'Token',
     }],
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    }
 },
     { timestamps: true }
 )
