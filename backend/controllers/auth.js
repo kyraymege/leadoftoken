@@ -18,7 +18,7 @@ const register = async (req, res, next) => {
 
     await newUser.save();
 
-    res.status(201).json({ message: "An Email send to your mail address. Please verify! ( Don't forget check spam folder)" });
+    res.status(201).json({ message: "Registered Succesfully!" });
   } catch (err) {
     res.status(500).json(err);
   }

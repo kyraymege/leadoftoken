@@ -19,7 +19,7 @@ export default function LoginComponent() {
 
     useEffect(() => {
         if (currentUser) {
-            router.push("/TokenLists")
+            router.push("/")
         }
     }, [])
 

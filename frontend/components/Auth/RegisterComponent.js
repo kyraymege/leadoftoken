@@ -17,7 +17,7 @@ export default function RegisterComponent() {
 
     useEffect(() => {
       if(currentUser){
-          router.push("/TokenLists")
+          router.push("/")
       }
     }, [])
     
@@ -58,7 +58,7 @@ export default function RegisterComponent() {
                             <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
                                 Name <span className="text-red-500">*</span>
                             </label>
-                            <input onChange={(e) => { setName(e.target.value) }} aria-labelledby="name" type="name" className="bg-gray-200 border rounded dark:bg-gray-600 text-xs font-medium leading-none placeholder-gray-400 placeholder:font-medium text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" placeholder="ex: lead@leadoftoken.net " />
+                            <input onChange={(e) => { setName(e.target.value) }} aria-labelledby="name" type="name" className="bg-gray-200 border rounded dark:bg-gray-600 text-xs font-medium leading-none placeholder-gray-400 placeholder:font-medium text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" placeholder="ex: John Doe " />
                         </div>
                         <div>
                             <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
@@ -134,12 +134,7 @@ export default function RegisterComponent() {
                                 </label>
                                 <p className="text-gray-500 dark:text-gray-400">No spam messages.</p>
                             </div>
-                        </div>
-                        {error ?
-                        <div className="bg-red-300 p-3 rounded-lg mt-6">
-                        <p className="text-gray-700">Please check your Email and Password. It may be an incorrect or used mail.</p>
-                        </div>:
-                        <></>}
+                        </div>                        
                         <div className="mt-8">                            
                             <button onClick={handleRegister} className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
                                 Create my account

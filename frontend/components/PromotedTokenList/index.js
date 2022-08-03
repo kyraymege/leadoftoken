@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BiUpArrow } from "react-icons/bi"
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
+import { GiSpinningBlades } from "react-icons/gi"
 import { fetchPromotedTokens, voteToken } from "../../redux/apiCalls";
 import moment from "moment"
 import { toast } from "react-toastify"
@@ -10,13 +11,14 @@ import {PF} from "../../redux/requestMethods"
 
 function PromotedTokenList() {
     const [coins, setCoin] = useState()
+    const [isFetching, setIsFetching] = useState(true)
     const router = useRouter();
-    const { currentUser } = useSelector((state) => state.auth)
-    const { isFetching, tokens } = useSelector((state) => state.token)    
+    const { currentUser } = useSelector((state) => state.auth) 
     useEffect(() => {
         const res = fetchPromotedTokens();
         res?.then((res) => {
             setCoin(res?.data)
+            setIsFetching(false);
         })
 
     }, [])
@@ -38,6 +40,12 @@ function PromotedTokenList() {
                     </div>
                 </div>
                 <div className="bg-white dark:bg-gray-800 shadow px-4 md:px-10 pb-8 overflow-y-auto">
+                {isFetching ?
+                        <div className="flex justify-center items-center">
+                            <GiSpinningBlades className="animate-spin text-indigo-700" size={50} />
+                        </div>
+                        :
+                        <>
                     <table className="w-full whitespace-nowrap">
                         <thead>
                             <tr className="h-16 w-full text-sm leading-none text-gray-800 dark:text-gray-400">
@@ -87,6 +95,7 @@ function PromotedTokenList() {
                             })}
                         </tbody>
                     </table>
+                    </>}
                 </div>
             </div>
         </>

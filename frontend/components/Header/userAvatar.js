@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import {BsFillBookmarkStarFill} from "react-icons/bs"
+import { FaUserCircle} from "react-icons/fa"
 import {logOut} from "../../redux/apiCalls"
 import {useDispatch} from "react-redux"
 import { useRouter } from 'next/router'
@@ -23,6 +24,10 @@ function UserAvatar() {
                 >
                     {show && (
                         <ul className="p-2 w-40 border-r bg-white absolute rounded z-40 right-0 shadow mt-16  top-0">
+                            <li onClick={()=> router.push("/profile/"+currentUser?._id)} className="cursor-pointer text-gray-700 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
+                                <FaUserCircle/>
+                                <span className="ml-2">Profile</span>
+                            </li>
                             <li onClick={()=> router.push("/watchlist/"+currentUser?._id)} className="cursor-pointer text-gray-700 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
                                 <BsFillBookmarkStarFill/>
                                 <span className="ml-2">Watch List</span>

@@ -27,7 +27,7 @@ function TokenListTable() {
             let as = router.query.as;
             if (page && as) {
                 fetchAllTokens(dispatch, page, as)
-                
+
                 setTokenLength(getTokensLength())
 
                 getTodaysBestToken().then((res) => {
@@ -54,6 +54,7 @@ function TokenListTable() {
     const handleVote = (token_id) => {
         if (currentUser !== null) {
             voteToken(currentUser?._id, token_id)
+
         } else {
             toast.warn("You must login for vote token!")
         }
@@ -97,25 +98,31 @@ function TokenListTable() {
                                     </ul>
                                 </div>
                             </div>
-
-                            <div onClick={() => router.push("/token/" + todayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-gray-900 bg-gray-300 py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
-                                <div className="w-16 h-16">
-                                    <img className="w-full h-full rounded-full" src={todayBestToken?.token_image == "/logo.png" ? todayBestToken?.token_image : PF + todayBestToken?.token_image} />
+                            {isFetching ?
+                                <div className="flex justify-center items-center">
+                                    <GiSpinningBlades className="animate-spin text-indigo-700" size={50} />
                                 </div>
-                                <div className="flex flex-col">
-                                    <h1 className="text-xl font-bold">Today&apos;s Best Token</h1>
-                                    <p className="">{todayBestToken?.token_name}</p>
-                                </div>
-                            </div>
-                            <div onClick={() => router.push("/token/" + yesterdayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-gray-900 bg-gray-300 py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
-                                <div className="w-16 h-16">
-                                    <img className="w-full h-full rounded-full" src={yesterdayBestToken?.token_image == "/logo.png" ? yesterdayBestToken?.token_image : PF + yesterdayBestToken?.token_image} />
-                                </div>
-                                <div className="flex flex-col">
-                                    <h1 className="text-xl font-bold">Yesterday&apos;s Best Token</h1>
-                                    <p className="">{yesterdayBestToken?.token_name}</p>
-                                </div>
-                            </div>
+                                :
+                                <>
+                                    <div onClick={() => router.push("/token/" + todayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-gray-900 bg-gray-300 py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
+                                        <div className="w-16 h-16">
+                                            <img className="w-full h-full rounded-full" src={todayBestToken?.token_image == "/logo.png" ? todayBestToken?.token_image : PF + todayBestToken?.token_image} />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <h1 className="text-xl font-bold">Today&apos;s Best Token</h1>
+                                            <p className="">{todayBestToken?.token_name}</p>
+                                        </div>
+                                    </div>
+                                    <div onClick={() => router.push("/token/" + yesterdayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-gray-900 bg-gray-300 py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
+                                        <div className="w-16 h-16">
+                                            <img className="w-full h-full rounded-full" src={yesterdayBestToken?.token_image == "/logo.png" ? yesterdayBestToken?.token_image : PF + yesterdayBestToken?.token_image} />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <h1 className="text-xl font-bold">Yesterday&apos;s Best Token</h1>
+                                            <p className="">{yesterdayBestToken?.token_name}</p>
+                                        </div>
+                                    </div>
+                                </>}
                         </div>
 
                     </div>

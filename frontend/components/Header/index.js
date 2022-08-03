@@ -53,12 +53,12 @@ const Header = () => {
                         <ul className="flex text-3xl md:text-base items-center py-10 md:flex flex-col md:flex-row justify-center fixed md:relative top-0 bottom-0 left-0 right-0 bg-white md:bg-transparent z-20">
 
                             <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-125  cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0">
-                                <Link href="/AddToken">
+                                <Link href="/addToken">
                                     <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Add Token</h1>
                                 </Link>
                             </li>
                             <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-125 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
-                                <Link href="/Contact">
+                                <Link href="/contact">
                                     <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Contact</h1>
                                 </Link>
                             </li>

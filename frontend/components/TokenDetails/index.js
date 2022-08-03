@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BiUpArrow } from "react-icons/bi"
-import { AiFillCopy, AiTwotoneStar } from "react-icons/ai"
+import { AiFillCopy, AiTwotoneStar, AiFillRedditCircle } from "react-icons/ai"
 import { SiWebflow } from "react-icons/si"
 import { FiTwitter, FiInstagram, } from "react-icons/fi";
 import { GiMagnifyingGlass } from "react-icons/gi"
 import { FaTelegramPlane } from "react-icons/fa";
+import { SiDiscord } from "react-icons/si"
 import { FcClock } from "react-icons/fc"
 import { addWatchList, fetchRandomTokens, fetchToken, voteToken } from "../../redux/apiCalls";
 import { useSelector } from 'react-redux';
@@ -12,7 +13,7 @@ import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { useRouter } from 'next/router'
-import {PF} from "../../redux/requestMethods"
+import { PF } from "../../redux/requestMethods"
 
 function TokenDetails({ token }) {
     const [tokenn, setTokenn] = useState({});
@@ -141,7 +142,7 @@ function TokenDetails({ token }) {
                                         }
                                     </div>
                                     <div className="flex gap-4 items-center py-6">
-                                        <a target="_blank" rel="noreferrer" href={"https://"+tokenn[0]?.token_website}><SiWebflow size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" /></a>
+                                        <a target="_blank" rel="noreferrer" href={"https://" + tokenn[0]?.token_website}><SiWebflow size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" /></a>
                                         {!tokenn[0]?.token_telegram == "" &&
                                             <a target="_blank" rel="noreferrer" href={tokenn[0]?.token_telegram}>
                                                 <FaTelegramPlane size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" />
@@ -153,6 +154,14 @@ function TokenDetails({ token }) {
                                         {!tokenn[0]?.token_instagram == "" &&
                                             <a target="_blank" rel="noreferrer" href={tokenn[0]?.token_instagram}>
                                                 <FiInstagram size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" />
+                                            </a>}
+                                        {!tokenn[0]?.token_discord == "" &&
+                                            <a target="_blank" rel="noreferrer" href={tokenn[0]?.token_discord}>
+                                                <SiDiscord size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" />
+                                            </a>}
+                                        {!tokenn[0]?.token_reddit == "" &&
+                                            <a target="_blank" rel="noreferrer" href={tokenn[0]?.token_reddit}>
+                                                <AiFillRedditCircle size={40} className="bg-gray-200 hover:bg-gray-300 p-2 text-gray-500 rounded-xl cursor-pointer" />
                                             </a>}
                                         <span className="w-px h-10 bg-gray-300" />
                                         <div className="flex gap-4">
@@ -218,7 +227,7 @@ function TokenDetails({ token }) {
                                             src={"https://coinbrain.com/embed/" + tokenn[0]?.token_contractAddress + "?theme=dark&chart=1&trades=1"}>
 
                                         </iframe>}
-                                    
+
                                 </div>
 
                                 <div onClick={() => handleVote(tokenn[0]?._id)} className="">

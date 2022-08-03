@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FiTwitter, FiInstagram, } from "react-icons/fi";
 import { FaEthereum, FaDiscord, FaReddit, FaTelegramPlane } from "react-icons/fa";
 import { BiPolygon, BiImageAdd  } from "react-icons/bi";
@@ -29,6 +29,12 @@ const TokenInfo = () => {
     const [file, setFile] = useState(null);
     const router = useRouter();
     const { currentUser } = useSelector((state) => state.auth)
+
+    useEffect(() => {
+        if (!currentUser) {
+            router.push("/auth")
+        }
+    }, [])
 
     const handleAddToken = (e) => {
         e.preventDefault();
