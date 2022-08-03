@@ -4,12 +4,14 @@ import { useSelector } from 'react-redux';
 import { PF } from '../../redux/requestMethods';
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 import UpdateTokenModel from './UpdateTokenModel';
+import { useRouter } from 'next/router';
 
 const ProfileCard = ({ user }) => {
     const { currentUser } = useSelector((state) => state.auth);
     const [profileUser, setProfileUser] = useState();
     const [profileTokens, setProfileTokens] = useState();
     const [isEdit, setIsEdit] = useState(false);
+    const router = useRouter();
     useEffect(() => {
         const res = getUser(user);
         res?.then((res) => {
@@ -22,7 +24,7 @@ const ProfileCard = ({ user }) => {
     }, [])
 
     const handleDeleteToken = (id) => {
-        deleteToken(id);
+        deleteToken(id,router);
     }
 
     return (

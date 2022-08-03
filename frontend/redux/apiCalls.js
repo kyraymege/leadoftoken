@@ -204,9 +204,14 @@ export const getCreatorsTokens = async (user_id) => {
 };
 
 //Delete token
-export const deleteToken = async (id) => {
+export const deleteToken = async (id,router) => {
     try {
-        await publicRequest.delete("/token/" + id);
+        await publicRequest.delete("/token/" + id).then((res) =>{
+            toast.success(res?.data);
+            setTimeout(() => {
+                router.push('/')
+            }, 3000)
+        })
     } catch (error) {
         console.log(error);
     }
