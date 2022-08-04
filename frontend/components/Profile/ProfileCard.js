@@ -68,7 +68,7 @@ const ProfileCard = ({ user }) => {
                                 </div>
                                 :
                                 <div className='flex items-center justify-center px-6'>
-                                    <p className='font-medium text-base py-4 lg:text-2xl'>You haven't added tokens yet.</p>
+                                    <p className='font-medium text-base py-4 lg:text-2xl'>You haven&apos;t added tokens yet.</p>
                                 </div>
                             }
 
