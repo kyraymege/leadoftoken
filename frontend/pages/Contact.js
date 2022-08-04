@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import { ToastContainer } from 'react-toastify'
 import Head from "next/head";
 
-const Contact = () => {
+const contact = () => {
   return (
     <div className="flex flex-col ">
       <Head>
@@ -25,4 +25,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default contact
