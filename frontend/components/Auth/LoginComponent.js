@@ -57,7 +57,7 @@ export default function LoginComponent() {
                         </p>
                         <div className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500 dark:text-gray-400 flex">
                             Dont have account?
-                            <Link href="/Sign-up">
+                            <Link href="/sign-up">
                                 <p className="hover:text-gray-500 ml-2 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 dark:text-gray-400 dark:hover:text-white cursor-pointer">Sign up here</p>
                             </Link>
                         </div>
