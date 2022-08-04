@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 const ProfileCard = ({ user }) => {
     const { currentUser } = useSelector((state) => state.auth);
     const [profileUser, setProfileUser] = useState();
-    const [profileTokens, setProfileTokens] = useState();
+    const [profileTokens, setProfileTokens] = useState([]);
     const [isEdit, setIsEdit] = useState(false);
     const router = useRouter();
     useEffect(() => {
@@ -19,12 +19,12 @@ const ProfileCard = ({ user }) => {
         })
 
         getCreatorsTokens(user).then((res) => {
-            setProfileTokens(res?.data)
+            setProfileTokens(res?.data)            
         })
     }, [])
 
     const handleDeleteToken = (id) => {
-        deleteToken(id,router);
+        deleteToken(id, router);
     }
 
     return (
@@ -40,31 +40,37 @@ const ProfileCard = ({ user }) => {
                                 <h2 className=" text-xl tracking-normal font-medium mb-1">{profileUser?.name}</h2>
                             </div>
 
-                            <div className="w-full  px-12 border-t border-b lg:border-t-0 lg:border-b-0 lg:border-l  border-gray-300 flex flex-col items-center py-10 gap-y-6">
-                                {profileTokens?.map((token, key) => {
-                                    <h1 className='font-semibold text-2xl'> Your Tokens</h1>
+                            {!profileTokens?.length == 0 ?
+                                <div className="w-full  px-12 border-t border-b lg:border-t-0 lg:border-b-0 lg:border-l  border-gray-300 flex flex-col items-center py-10 gap-y-6">
+                                    {profileTokens?.map((token, key) => {
+                                        <h1 className='font-semibold text-2xl'> Your Tokens</h1>
 
-                                    return (
-                                        <div key={key}>
-                                            <div  className='flex items-center gap-x-4'>
-                                                <img role="img" className="w-16 h-16 overflow-hidden object-cover rounded-xl" src={PF + token?.token_image} alt="avatar" />
-                                                <h2 className=" text-xl tracking-normal font-medium mb-1">{token?.token_name}</h2>
-                                                {currentUser ?
-                                                    <>
-                                                        <AiFillEdit onClick={() => setIsEdit((prev) => !prev)} className='fill-green-500 hover:scale-125 cursor-pointer' />
-                                                        <AiFillDelete onClick={() => handleDeleteToken(token?._id)} className='fill-red-500 hover:scale-125 cursor-pointer' />
-                                                    </>
-                                                    :
-                                                    <>
-                                                    </>}
+                                        return (
+                                            <div key={key}>
+                                                <div className='flex items-center gap-x-4'>
+                                                    <img role="img" className="w-16 h-16 overflow-hidden object-cover rounded-xl" src={PF + token?.token_image} alt="avatar" />
+                                                    <h2 className=" text-xl tracking-normal font-medium mb-1">{token?.token_name}</h2>
+                                                    {currentUser ?
+                                                        <>
+                                                            <AiFillEdit onClick={() => setIsEdit((prev) => !prev)} className='fill-green-500 hover:scale-125 cursor-pointer' />
+                                                            <AiFillDelete onClick={() => handleDeleteToken(token?._id)} className='fill-red-500 hover:scale-125 cursor-pointer' />
+                                                        </>
+                                                        :
+                                                        <>
+                                                        </>}
+                                                </div>
+
+                                                {isEdit &&
+                                                    <UpdateTokenModel token={token} />}
                                             </div>
-
-                                            {isEdit &&
-                                                <UpdateTokenModel token={token} />}
-                                        </div>
-                                    )
-                                })}
-                            </div>
+                                        )
+                                    })}
+                                </div>
+                                :
+                                <div className='flex items-center justify-center px-6'>
+                                    <p className='font-medium text-base py-4 lg:text-2xl'>You haven't added tokens yet.</p>
+                                </div>
+                            }
 
 
                         </div>

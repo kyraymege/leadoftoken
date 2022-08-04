@@ -40,7 +40,7 @@ const UpdateTokenModel = ({ token }) => {
         },router)
     }
     return (
-        <section className="w-full bg-opacity-50">
+        <section className="w-full bg-opacity-50 py-6">
             <form className="container max-w-2xl mx-auto shadow-md md:w-3/4">
                 <div className="p-4 bg-gray-100 border-t-2 border-indigo-400 rounded-lg bg-opacity-5">
                     <div className="max-w-sm mx-auto md:w-full md:mx-0">
