@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { ToastContainer } from 'react-toastify'
-import CreateNewsComponent from '../components/News/createNews/index';
+import CreateNewsComponent from '../components/News/CreateNews';
 import Head from "next/head";
 
 const createNews = () => {
