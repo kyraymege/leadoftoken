@@ -30,10 +30,10 @@ export default function Carousel() {
                             </svg>
                         </ButtonBack>
                         <Slider className="cursor-pointer" onClick={() => router.push("/news/" + news?._id)}>
-                            {mostClaps?.map((news, key) => {
+                            {mostClaps?.map((news, index) => {
                                 return (
-                                    <Slide>
-                                        <div key={key} className="gallery-cell shadow-2xl shadow-gray-700 lg:mr-7 mr-6 lg:w-1/2 sm:w-96 w-full h-full">
+                                    <Slide key={index}>
+                                        <div className="gallery-cell shadow-2xl shadow-gray-700 lg:mr-7 mr-6 lg:w-1/2 sm:w-96 w-full h-full">
                                             <div className="relative w-full h-full lg:block hidden">
                                                 <img src={PF + news?.image} alt="sitting area" className="object-center object-cover w-full h-full" />
                                                 <div className="flex justify-between pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0 w-full bg-black bg-opacity-50 py-6">
