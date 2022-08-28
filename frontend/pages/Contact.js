@@ -15,7 +15,7 @@ const contact = () => {
       <Head>
         <meta name="description" content="This Page is Lead Of Token's contact page. You can contact with us" />
       </Head>
-      <div className="dark:bg-gray-900 w-full flex flex-col items-center">
+      <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
         <Header />
         <ToastContainer />
         <ContactComp />

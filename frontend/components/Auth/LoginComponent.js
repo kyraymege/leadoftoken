@@ -47,22 +47,22 @@ export default function LoginComponent() {
 
     return (
         <>
-            <div className="bg-indigo-50 min-h-screen dark:bg-gray-900 shadow-2xl">
-                <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
+            <div className="bg-primary min-h-screen dark:bg-[#212121]">
+                <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center ">
 
-                    <div className="bg-white dark:bg-gray-800 shadow-lg rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6">
+                    <div className="bg-secondary dark:bg-[#252525] rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6 shadow-2xl shadow-gray-800">
                         
                         <p className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 dark:text-white">
                             Login to your account
                         </p>
                         <div className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500 dark:text-gray-400 flex">
                             Dont have account?
-                            <Link href="/Sign-up">
+                            <Link href="/sign-up">
                                 <p className="hover:text-gray-500 ml-2 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 dark:text-gray-400 dark:hover:text-white cursor-pointer">Sign up here</p>
                             </Link>
                         </div>
                         
-                        <button onClick={signInWithGoogle} aria-label="Continue with google" role="button" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 dark:border-gray-500 flex items-center w-full mt-10 hover:bg-gray-100 dark:hover:bg-gray-900">
+                        <button onClick={signInWithGoogle} aria-label="Continue with google" role="button" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 dark:border-gray-500 flex items-center w-full mt-10 hover:bg-tertiary dark:hover:bg-[#212121]">
                             <FcGoogle size={24} />
                             <p className="text-base font-medium ml-4 text-gray-700 dark:text-gray-400">Continue with Google</p>
                         </button>
@@ -75,14 +75,14 @@ export default function LoginComponent() {
                             <label className="text-sm font-medium leading-none text-gray-800 dark:text-gray-400">
                                 Email
                             </label>
-                            <input onChange={(e) => { setEmail(e.target.value) }} id="email" aria-labelledby="email" type="email" className="bg-gray-200 dark:bg-gray-600 dark:text-white border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2" placeholder="e.g: john@gmail.com " />
+                            <input onChange={(e) => { setEmail(e.target.value) }} id="email" aria-labelledby="email" type="email" className="bg-tertiary dark:bg-[#414141] dark:text-white border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-200 py-3 w-full pl-3 mt-2" placeholder="e.g: john@gmail.com " />
                         </div>
                         <div className="mt-6 w-full">
                             <label className="text-sm font-medium leading-none text-gray-800 dark:text-gray-400">
                                 Password
                             </label>
                             <div className="relative flex items-center justify-center">
-                                <input onChange={(e) => { setPassword(e.target.value) }} id="myInput" type={showpass ? "text" : "password"} className="bg-gray-200 dark:bg-gray-600 dark:text-white border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                <input onChange={(e) => { setPassword(e.target.value) }} id="myInput" type={showpass ? "text" : "password"} className="bg-tertiary dark:bg-[#414141] dark:text-white border rounded text-xs font-medium leading-none  text-gray-200 py-3 w-full pl-3 mt-2" />
                                 <div onClick={() => setShowPass(!showpass)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
                                     <div id="show">
                                         <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

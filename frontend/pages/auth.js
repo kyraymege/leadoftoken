@@ -15,7 +15,7 @@ function Login() {
             <Head>
                 <meta name="description" content="You can Sign In immediately and Exlore Lead Of Token world!" />
             </Head>
-            <div className="dark:bg-gray-900  flex flex-col items-center">
+            <div className="dark:bg-[#212121] bg-primary flex flex-col items-center">
                 <Header />
                 <div className="flex flex-col w-full ">
                     <LoginComponent />

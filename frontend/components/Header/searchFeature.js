@@ -33,7 +33,7 @@ const SearchFeature = () => {
         <div className='hidden lg:block'>
             <div className="relative">
                 <input
-                    className="relative text-sm leading-none text-gray-600  bg-gray-200  dark:bg-gray-400  rounded lg:max-w-[452px] w-full px-10 py-4 outline-none flex-grow"
+                    className="relative text-sm leading-none dark:text-white text-gray-600  bg-tertiary  dark:bg-[#414141]  rounded lg:max-w-[452px] w-full px-10 py-4 outline-none flex-grow focus:ring-indigo-500"
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}

@@ -3,65 +3,95 @@
 @tailwind utilities;
 
 .custom-item {
-    background-color: #fff;
-    border-radius: 50px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    min-width: 40px;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-    cursor: pointer;
-    background-color: rgba(73, 84, 99,1);
-    color: #fff;
-  }
-  
-  .custom-item--active {
-    background-color: rgb(104, 0, 255);
-    border-radius: 50px;
-    color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    min-width: 40px;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-  }
-  .custom-item--disable {
-    opacity: 0.5;
-  }
-  .custom-root ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .custom-go-item {
-    align-items: center;
-    display: flex;
-    font-size: 1rem;
-    padding-inline-end: 0.75rem;
-    padding-inline-start: 0.75rem;
-    width: 150px;
-  }
-  .custom-go-item input {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    height: 40px;
-    width: 100%;
-  }
-  .custom-progress-bar {
-    background-color: #9e75ff;
-    border-radius: 5px;
-    box-shadow: 0 0 4px rgba(174, 0, 255, 0.4);
-    height: 3px;
-    margin: 1rem 0;
-    max-width: 100%;
-    transition: width 0.2s ease;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  cursor: pointer;
+  background-color: #212121;
+  color: #fff;
+}
+
+.custom-item--active {
+  background-color: #4338ca;
+  border-radius: 10px;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.custom-item--disable {
+  opacity: 0.5;
+}
+
+.custom-root ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-go-item {
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  padding-inline-end: 0.75rem;
+  padding-inline-start: 0.75rem;
+  width: 150px;
+}
+
+.custom-go-item input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 40px;
+  width: 100%;
+}
+
+.custom-progress-bar {
+  background-color: #6f65e8;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(174, 0, 255, 0.4);
+  height: 3px;
+  margin: 1rem 0;
+  max-width: 100%;
+  transition: width 0.2s ease;
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
   }
 
-  
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: gray;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #6f65e8;
+    border-radius: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #6f65e9;
+  }
+}
+
+@layer base {
+  body{
+    @apply scrollbar;
+  }
+}

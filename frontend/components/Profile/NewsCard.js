@@ -1,66 +1,51 @@
 import React from 'react'
+import moment from 'moment'
+import { PF } from '../../redux/requestMethods'
+import { useRouter } from 'next/router'
 
-const NewsCard = () => {
+
+const NewsCard = ({ news }) => {
+    const router = useRouter();
     return (
-        <div>
-            <section className="text-gray-600 body-font">
-                <div className="container px-5 py-24 mx-auto max-w-7x1">
-                    <div className="flex flex-wrap w-full mb-4 p-4">
-                        <div className="w-full mb-6 lg:mb-0">
-                            <div className='flex gap-x-2'>
-                            <h1 className="sm:text-4xl text-5xl font-bold mb-2 dark:text-gray-400 text-gray-800">News</h1>
-                            <p className='text-xl font-black text-red-500'>VERY SOON</p>
+        <>
+            <div className="grid lg:grid-cols-3 grid-cols-1 px-6 py-10">
+                {news?.map((news, key) => {
+                    return (
+                        <div key={key} onClick={() => router.push("/news/" + news?._id)} className="lg:mt-6 sm:mt-0 mt-6 lg:ml-0 sm:ml-6 lg:w-auto sm:w-1/2 px-6 py-6 rounded bg-secondary dark:bg-[#252525] shadow-2xl shadow-gray-400 dark:shadow-gray-800 mx-6 cursor-pointer border border-gray-300 dark:border-gray-700">
+                            <div className='max-w-lg h-72'>
+                                {news?.image == "/newsImage.png" ?
+                                    <img src={news?.image} alt="news news" className="w-full object-cover max-w-lg h-72" />
+                                    :
+                                    <img src={PF + news?.image} alt="news news" className="w-full object-cover max-w-lg h-72" />
+                                }
                             </div>
-                            <div className="h-1 w-20 bg-indigo-500 rounded"></div>
-                        </div>
-                    </div>                    
-                    <div className="flex flex-wrap -m-4 blur-lg">                        
-                        <div className="xl:w-1/3 md:w-1/2 p-4 hover:scale-105 cursor-pointer">
-                            <div className="dark:bg-gray-800 bg-gray-100 p-6 rounded-lg">
-                                <img className="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72  rounded w-full object-cover object-center mb-6" src="https://kuyou.id/content/images/ctc_2020021605150668915.jpg" alt="Image Size 720x400" />
-                                <h3 className="tracking-widest text-indigo-500 text-lg font-medium">Chichen Itza</h3>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                            </div>
-                        </div>
-                        <div className="xl:w-1/3 md:w-1/2 p-4 hover:scale-105 cursor-pointer">
-                            <div className="dark:bg-gray-800 bg-gray-100 p-6 rounded-lg">
-                                <img className="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72 rounded w-full object-cover object-center mb-6" src="https://asset.kompas.com/crops/Pk_pN6vllxXy1RshYsEv74Q1BYA=/56x0:1553x998/750x500/data/photo/2021/06/16/60c8f9d68ff4a.jpg" alt="Image Size 720x400" />
-                                <h3 className="tracking-widest text-indigo-500 text-lg font-medium">Colosseum Roma</h3>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                            </div>
-                        </div>
-                        <div className="xl:w-1/3 md:w-1/2 p-4 hover:scale-105 cursor-pointer">
-                            <div className="dark:bg-gray-800 bg-gray-100 p-6 rounded-lg">
-                                <img className="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72 rounded w-full object-cover object-center mb-6" src="https://images.immediate.co.uk/production/volatile/sites/7/2019/07/33-GettyImages-154260931-216706f.jpg?quality=90&resize=768%2C574" alt="Image Size 720x400" />
-                                <h3 className="tracking-widest text-indigo-500 text-lg font-medium">Great Pyramid of Giza</h3>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                            </div>
-                        </div>
-                        <div className="xl:w-1/3 md:w-1/2 p-4 hover:scale-105 cursor-pointer">
-                            <div className="dark:bg-gray-800 bg-gray-100 p-6 rounded-lg">
-                                <img className="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72 rounded w-full object-cover object-center mb-6" src="https://wisatamuda.com/wp-content/uploads/2019/02/1-Golden-Gate-Bridge-Gambar-dan-Foto-Tempat-Wisata-Terbaik-di-San-Fransisco-USA.jpg" alt="Image Size 720x400" />
-                                <h3 className="tracking-widest text-indigo-500 text-lg font-medium">San Francisco</h3>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+                            <div className="mt-4">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center">
+                                        <p className="text-base leading-4 text-gray-500">{moment(news?.createdAt).fromNow()}</p>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <svg width={64} height={2} viewBox="0 0 64 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M64 1H0" stroke="#6B7280" />
+                                        </svg>
+                                        <div className='fill-green-500 hover:animate-ping duration-1000 w-9 h-9 hover:w-6 hover:h-9'>
+                                            <svg viewBox="0 0 24 24" aria-label="clap">
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M11.37.83L12 3.28l.63-2.45h-1.26zM15.42 1.84l-1.18-.39-.34 2.5 1.52-2.1zM9.76 1.45l-1.19.4 1.53 2.1-.34-2.5zM20.25 11.84l-2.5-4.4a1.42 1.42 0 0 0-.93-.64.96.96 0 0 0-.75.18c-.25.19-.4.42-.45.7l.05.05 2.35 4.13c1.62 2.95 1.1 5.78-1.52 8.4l-.46.41c1-.13 1.93-.6 2.78-1.45 2.7-2.7 2.51-5.59 1.43-7.38zM12.07 9.01c-.13-.69.08-1.3.57-1.77l-2.06-2.07a1.12 1.12 0 0 0-1.56 0c-.15.15-.22.34-.27.53L12.07 9z">
+                                                </path>
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M14.74 8.3a1.13 1.13 0 0 0-.73-.5.67.67 0 0 0-.53.13c-.15.12-.59.46-.2 1.3l1.18 2.5a.45.45 0 0 1-.23.76.44.44 0 0 1-.48-.25L7.6 6.11a.82.82 0 1 0-1.15 1.15l3.64 3.64a.45.45 0 1 1-.63.63L5.83 7.9 4.8 6.86a.82.82 0 0 0-1.33.9c.04.1.1.18.18.26l1.02 1.03 3.65 3.64a.44.44 0 0 1-.15.73.44.44 0 0 1-.48-.1L4.05 9.68a.82.82 0 0 0-1.4.57.81.81 0 0 0 .24.58l1.53 1.54 2.3 2.28a.45.45 0 0 1-.64.63L3.8 13a.81.81 0 0 0-1.39.57c0 .22.09.43.24.58l4.4 4.4c2.8 2.8 5.5 4.12 8.68.94 2.27-2.28 2.71-4.6 1.34-7.1l-2.32-4.08z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p className="text-lg font-medium leading-none text-gray-500 ml-2">{news?.clap}</p>
+                                    </div>
+                                </div>
+                                <h1 className="text-2xl font-semibold leading-6 mt-4 dark:text-white">{news?.title}</h1>
                             </div>
                         </div>
-                        <div className="xl:w-1/3 md:w-1/2 p-4 hover:scale-105 cursor-pointer">
-                            <div className="dark:bg-gray-800 bg-gray-100 p-6 rounded-lg">
-                                <img className="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72 rounded w-full object-cover object-center mb-6" src="https://wisatamuda.com/wp-content/uploads/2019/02/1-Golden-Gate-Bridge-Gambar-dan-Foto-Tempat-Wisata-Terbaik-di-San-Fransisco-USA.jpg" alt="Image Size 720x400" />
-                                <h3 className="tracking-widest text-indigo-500 text-lg font-medium">San Francisco</h3>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                            </div>
-                        </div>
-                        <div className="xl:w-1/3 md:w-1/2 p-4 hover:scale-105 cursor-pointer">
-                            <div className="dark:bg-gray-800 bg-gray-100 p-6 rounded-lg">
-                                <img className="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72 rounded w-full object-cover object-center mb-6" src="https://wisatamuda.com/wp-content/uploads/2019/02/1-Golden-Gate-Bridge-Gambar-dan-Foto-Tempat-Wisata-Terbaik-di-San-Fransisco-USA.jpg" alt="Image Size 720x400" />
-                                <h3 className="tracking-widest text-indigo-500 text-lg font-medium">San Francisco</h3>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+                    )
+                })}
+            </div>
+        </>
     )
 }
 

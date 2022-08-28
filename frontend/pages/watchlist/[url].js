@@ -18,7 +18,7 @@ const WatchListPage = ({ params }) => {
       <Head>
         <meta name="description" content="To take advantage of the privileges of Lead Of Token, you can create your own watch list by logging in immediately and share it with your friends or followers!" />
       </Head>
-      <div className="dark:bg-gray-900 w-full flex flex-col items-center">
+      <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
         <Header />
         <ToastContainer />
         <WatchList user={url} />

@@ -5,19 +5,23 @@ const newsSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: true,
-        max: 100
     },
     content: {
-        type: String,
+        type: Object,
         required: true,
     },
     image: {
-        type: String,        
+        type: String,
         trim: true,
     },
     author: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        type: String,
+        trim: true,
+        required: true,
+    },
+    isPromoted: {
+        type: Boolean,
+        default: false
     }
 },
     { timestamps: true }

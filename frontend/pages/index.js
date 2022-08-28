@@ -1,15 +1,25 @@
-import React from "react";
-import TokenListTable from "../components/TokenListTable";
+import React, { useEffect } from "react";
+import TokenListTable from "../components/Tokens/TokenListTable";
 import Header from "../components/Header/index"
 import Footer from "../components/Footer/index"
-import PromotedTokenList from "../components/PromotedTokenList";
+import PromotedTokenList from "../components/Tokens/PromotedTokenList";
 import Head from "next/head";
 import { ToastContainer } from 'react-toastify'
+import { logOut } from "../redux/apiCalls";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 function Home() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (!document.cookie.includes("access_token")) {
+            logOut(dispatch);
+        }
+    }, [])
+    const router = useRouter();
 
-  return (
-    <div className="flex flex-col ">
+    return (
+        <div className="flex flex-col ">
             <Head>
                 <title>Lead Of Token | Token Lists </title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -17,21 +27,21 @@ function Home() {
             <Head>
                 <meta name="description" content="You can access all the listed tokens here!" />
             </Head>
-            <div className="dark:bg-gray-900 w-full flex flex-col items-center">            
-            <Header />
-            <ToastContainer/>                        
-            <PromotedTokenList />
-            <div className='relative mt-10 container'>
-                <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-blue-500 to-indigo-700 rounded blur animate-pulse"/>
-                <img className='relative' src='https://storage.googleapis.com/coinsniper-assets/images/RCNyaANXFfrDQchhhVFRCZFob9w0c5ctl32QQ6R4.gif' />
+            <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
+                <Header />
+                <ToastContainer />
+                <PromotedTokenList />
+                <div onClick={()=>router.push("/contact")} className='relative mt-10 container cursor-pointer'>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-indigo-300 via-indigo-700 to-indigo-500 rounded blur animate-pulse" />
+                    <img className='relative' src='https://storage.googleapis.com/coinsniper-assets/images/RCNyaANXFfrDQchhhVFRCZFob9w0c5ctl32QQ6R4.gif' />
+                </div>
+                <TokenListTable />
+                <Footer />
+
             </div>
-            <TokenListTable />
-            <Footer />
-            
-            </div>
-            
+
         </div>
-  );
+    );
 }
 
 export default Home;

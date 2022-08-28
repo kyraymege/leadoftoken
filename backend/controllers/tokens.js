@@ -362,7 +362,7 @@ const findToken = async (req, res) => {
 
         }
       },
-    ]).then(token => res.status(200).json(token))
+    ]).then(token => res.status(200).json(token[0]))
   } catch (err) {
     res.status(500).json(err);
   }

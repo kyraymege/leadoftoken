@@ -1,4 +1,4 @@
-import TokenInfo from "../components/AddToken/tokenInfo"
+import TokenInfo from "../components/Tokens/AddToken/tokenInfo"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { ToastContainer } from 'react-toastify'
@@ -14,7 +14,7 @@ export default function AddToken() {
             <Head>
                 <meta name="description" content="Add new token to Lead Of Token.Please fill out this form carefully to add a new token to Lead Of Token." />
             </Head>
-            <div className="dark:bg-gray-900 w-full flex flex-col items-center">
+            <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
                 <Header />
                 <ToastContainer />
                 <div className="py-20 shadow-2xl">

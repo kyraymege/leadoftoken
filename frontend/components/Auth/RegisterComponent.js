@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { register } from "../../redux/apiCalls";
 import { useSelector } from 'react-redux';
@@ -12,28 +12,28 @@ export default function RegisterComponent() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const {isFetching, error,currentUser} = useSelector((state)=>state.auth)
+    const { isFetching, error, currentUser } = useSelector((state) => state.auth)
     const router = useRouter();
 
     useEffect(() => {
-      if(currentUser){
-          router.push("/")
-      }
+        if (currentUser) {
+            router.push("/")
+        }
     }, [])
-    
 
-    const handleRegister = (e) =>{
+
+    const handleRegister = (e) => {
         e.preventDefault();
         if (email === "" || password === "" || confirmPassword === "") {
             toast.warn("You must fill all sections!")
         } else {
-            if (password === confirmPassword) {                
+            if (password === confirmPassword) {
                 try {
-                     register({name,email,password},router)                    
+                    register({ name, email, password }, router)
                 } catch (error) {
-                    console.log(error)                    
+                    console.log(error)
                 }
-                
+
             } else {
                 toast.error('Passwords are not matching!');
             }
@@ -41,13 +41,13 @@ export default function RegisterComponent() {
 
     }
 
-    return (        
-        <>        
-            <div className="bg-indigo-50 min-h-screen dark:bg-gray-900 ">
+    return (
+        <>
+            <div className="bg-primary min-h-screen dark:bg-[#212121] ">
                 <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
 
-                    <div className="bg-white dark:bg-gray-800 shadow-lg rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6">
-                        <p tabIndex={0} className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 dark:text-white dark:text-white">
+                    <div className="bg-secondary dark:bg-[#252525] shadow-2xl shadow-gray-800 rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6">
+                        <p tabIndex={0} className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 dark:text-white">
                             Let&apos;s create your account
                         </p>
 
@@ -58,20 +58,20 @@ export default function RegisterComponent() {
                             <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
                                 Name <span className="text-red-500">*</span>
                             </label>
-                            <input onChange={(e) => { setName(e.target.value) }} aria-labelledby="name" type="name" className="bg-gray-200 border rounded dark:bg-gray-600 text-xs font-medium leading-none placeholder-gray-400 placeholder:font-medium text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" placeholder="ex: John Doe " />
+                            <input onChange={(e) => { setName(e.target.value) }} aria-labelledby="name" type="name" className="bg-tertiary border rounded dark:bg-[#414141] text-xs font-medium leading-none placeholder-gray-200 placeholder:font-medium text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" placeholder="ex: John Doe " />
                         </div>
                         <div>
                             <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
                                 Email <span className="text-red-500">*</span>
                             </label>
-                            <input onChange={(e) => { setEmail(e.target.value) }} aria-labelledby="email" type="email" className="bg-gray-200 border rounded dark:bg-gray-600 text-xs font-medium leading-none placeholder-gray-400 placeholder:font-medium text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" placeholder="ex: lead@leadoftoken.net " />
+                            <input onChange={(e) => { setEmail(e.target.value) }} aria-labelledby="email" type="email" className="bg-tertiary border rounded dark:bg-[#414141] text-xs font-medium leading-none placeholder-gray-200 placeholder:font-medium text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" placeholder="ex: lead@leadoftoken.net " />
                         </div>
                         <div className="mt-6 w-full">
                             <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
                                 Password <span className="text-red-500">*</span>
                             </label>
                             <div className="relative flex items-center justify-center">
-                                <input onChange={(e) => { setPassword(e.target.value) }} type={showpass ? "text" : "password"} className="bg-gray-200 border rounded dark:bg-gray-600 text-xs font-medium leading-none text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" />
+                                <input onChange={(e) => { setPassword(e.target.value) }} type={showpass ? "text" : "password"} className="bg-tertiary border rounded dark:bg-[#414141] text-xs font-medium leading-none text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" />
                                 <div onClick={() => setShowPass(!showpass)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
                                     <div id="show">
                                         <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +97,7 @@ export default function RegisterComponent() {
                                 Confirm Password <span className="text-red-500">*</span>
                             </label>
                             <div className="relative flex items-center justify-center">
-                                <input onChange={(e) => { setConfirmPassword(e.target.value) }} type={showpass1 ? "text" : "password"} className="bg-gray-200 border rounded dark:bg-gray-600 text-xs font-medium leading-none text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" />
+                                <input onChange={(e) => { setConfirmPassword(e.target.value) }} type={showpass1 ? "text" : "password"} className="bg-tertiary border rounded dark:bg-[#414141] text-xs font-medium leading-none text-gray-800 dark:text-white py-3 w-full pl-3 mt-2" />
                                 <div onClick={() => setShowPass1(!showpass1)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
                                     <div id="show">
                                         <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,16 +134,16 @@ export default function RegisterComponent() {
                                 </label>
                                 <p className="text-gray-500 dark:text-gray-400">No spam messages.</p>
                             </div>
-                        </div>                        
-                        <div className="mt-8">                            
+                        </div>
+                        <div className="mt-8">
                             <button onClick={handleRegister} className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
                                 Create my account
                             </button>
                         </div>
                     </div>
-                </div>                
-            </div>            
-         
+                </div>
+            </div>
+
         </>
     );
 }

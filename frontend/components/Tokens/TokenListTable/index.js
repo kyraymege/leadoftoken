@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { BiUpArrow } from "react-icons/bi"
+import { BiUpArrow, BiLoaderCircle } from "react-icons/bi"
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllTokens, getTodaysBestToken, getYesterdaysBestToken, getTokensLength, voteToken } from "../../redux/apiCalls";
+import { fetchAllTokens, getTodaysBestToken, getYesterdaysBestToken, getTokensLength, voteToken } from "../../../redux/apiCalls";
 import moment from "moment"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
 import { Pagination } from "react-pagination-bar"
 import 'react-pagination-bar/dist/index.css'
-import { GiSpinningBlades } from "react-icons/gi"
-import { PF } from "../../redux/requestMethods"
+import { PF } from "../../../redux/requestMethods"
 
 function TokenListTable() {
     const dispatch = useDispatch();
@@ -27,7 +26,6 @@ function TokenListTable() {
             let as = router.query.as;
             if (page && as) {
                 fetchAllTokens(dispatch, page, as)
-
                 setTokenLength(getTokensLength())
 
                 getTodaysBestToken().then((res) => {
@@ -41,9 +39,6 @@ function TokenListTable() {
                 getTokensLength().then((res) => {
                     setTokenLength(res?.data)
                 })
-
-
-
             }
         } catch (error) {
             console.log(error)
@@ -62,8 +57,8 @@ function TokenListTable() {
 
     return (
         <>
-            <div className="w-full container py-20 sm:px-6">
-                <div className="px-4 md:px-10 py-4 md:py-7 bg-gray-100 dark:bg-gray-800 rounded-tl-lg rounded-tr-lg">
+            <div className="w-full container py-20 sm:px-6 rounded-2xl">
+                <div className="px-4 md:px-10 py-4 md:py-7 bg-secondary dark:bg-[#252525] rounded border-t border-l border-r dark:border-gray-700 border-gray-300 ">
                     <div className="sm:flex items-center justify-between">
                         <div className="flex flex-col lg:flex-row  items-center gap-x-12 gap-y-6">
                             <div className="sm:hidden relative w-11/12 mx-auto rounded">
@@ -76,7 +71,7 @@ function TokenListTable() {
                                     <option className="text-sm text-gray-600">Recently Listed </option>
                                 </select>
                             </div>
-                            <div className="justify-between flex-wrap hidden sm:block bg-white dark:bg-gray-700  rounded-xl shadow-xl ">
+                            <div className="justify-between flex-wrap hidden sm:block bg-tertiary dark:bg-[#313131]  rounded-xl shadow-xl ">
                                 <div className="xl:w-full pl-5 pr-5 h-full">
                                     <ul className="flex">
                                         <li onClick={() => { setActiveStatus(1); router.push("/?p=1&as=1") }} className={activeStatus == 1 ? "text-xl text-indigo-700 dark:text-white flex flex-col justify-between border-indigo-700 pt-3 rounded-t mr-10 font-medium" : "text-xl text-gray-600 py-3 mr-10 font-medium cursor-pointer hover:text-gray-800 dark:hover:text-gray-400"}>
@@ -99,12 +94,14 @@ function TokenListTable() {
                                 </div>
                             </div>
                             {isFetching ?
-                                <div className="flex justify-center items-center">
-                                    <GiSpinningBlades className="animate-spin text-indigo-700" size={50} />
+                                <div className='flex items-center mx-auto'>
+                                    <p className='text-9xl font-extrabold text-indigo-700 animate-bounce'>L</p>
+                                    <BiLoaderCircle className='animate-spin fill-indigo-500' size={96} />
+                                    <p className='text-9xl font-extrabold text-indigo-700 animate-bounce'>ADING</p>
                                 </div>
                                 :
                                 <>
-                                    <div onClick={() => router.push("/token/" + todayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-gray-900 bg-gray-300 py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
+                                    <div onClick={() => router.push("/token/" + todayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-[#212121] bg-tertiary py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
                                         <div className="w-16 h-16">
                                             <img className="w-full h-full rounded-full" src={todayBestToken?.token_image == "/logo.png" ? todayBestToken?.token_image : PF + todayBestToken?.token_image} />
                                         </div>
@@ -113,7 +110,7 @@ function TokenListTable() {
                                             <p className="">{todayBestToken?.token_name}</p>
                                         </div>
                                     </div>
-                                    <div onClick={() => router.push("/token/" + yesterdayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-gray-900 bg-gray-300 py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
+                                    <div onClick={() => router.push("/token/" + yesterdayBestToken?._id)} className="flex items-center justify-center gap-x-6 dark:bg-[#212121] bg-tertiary py-3 px-5 rounded-xl hover:scale-110 cursor-pointer ">
                                         <div className="w-16 h-16">
                                             <img className="w-full h-full rounded-full" src={yesterdayBestToken?.token_image == "/logo.png" ? yesterdayBestToken?.token_image : PF + yesterdayBestToken?.token_image} />
                                         </div>
@@ -127,10 +124,12 @@ function TokenListTable() {
 
                     </div>
                 </div>
-                <div className="bg-white dark:bg-gray-800 shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
+                <div className="bg-quaternary dark:bg-[#313131] shadow-2xl shadow-gray-400 dark:shadow-gray-800 px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto border-b border-r border-l dark:border-gray-700 border-gray-300">
                     {isFetching ?
-                        <div className="flex justify-center items-center">
-                            <GiSpinningBlades className="animate-spin text-indigo-700" size={50} />
+                        <div className='flex items-center mx-auto'>
+                            <p className='text-9xl font-extrabold text-indigo-700 animate-bounce'>L</p>
+                            <BiLoaderCircle className='animate-spin fill-indigo-500' size={96} />
+                            <p className='text-9xl font-extrabold text-indigo-700 animate-bounce'>ADING</p>
                         </div>
                         :
                         <>
@@ -145,13 +144,13 @@ function TokenListTable() {
                                             :
                                             <th className="font-normal text-left hidden lg:table-cell">Time Since Launch</th>
                                         }
-                                        <th className="font-normal ">Votes</th>
+                                        <th className="font-normal">Votes</th>
                                     </tr>
                                 </thead>
                                 {tokens?.map((token, key) => {
                                     return (
                                         <tbody key={key} className="w-full cursor-pointer">
-                                            <tr className="h-20 text-sm leading-none text-gray-800 bg-white dark:bg-gray-600 hover:bg-gray-100 border-b border-t border-gray-100 dark:border-gray-500">
+                                            <tr className="h-20 text-sm text-gray-800 bg-tertiary hover:bg-secondary dark:bg-[#212121] hover:dark:bg-[#414141] border-b border-t border-gray-100 dark:border-gray-700">
                                                 <td onClick={() => router.push("/token/" + token?._id)} className="pl-4 cursor-pointer">
                                                     <div className="flex items-center">
                                                         <div className="w-10 h-10">
@@ -172,21 +171,23 @@ function TokenListTable() {
                                                 {activeStatus == 4 ?
                                                     <>
                                                         <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)} >
-                                                            <p className="font-medium dark:text-gray-200 dark:hover:text-white">{moment(token?.createdAt).startOf('day').fromNow()}</p>
+                                                            <p className="font-medium dark:text-gray-200 dark:hover:text-white">{moment(token?.createdAt).fromNow()}</p>
                                                         </td>
                                                     </>
                                                     :
                                                     <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)} >
-                                                        <p className="font-medium dark:text-gray-200 dark:hover:text-white">{moment(token?.launchdate).startOf('day').fromNow()}</p>
+                                                        <p className="font-medium dark:text-gray-200 dark:hover:text-white">{moment(token?.launchdate).fromNow()}</p>
                                                         <p className="text-xs leading-3 text-gray-600 dark:text-gray-400 dark:hover:text-white mt-2 ">{token?.launchdate}</p>
                                                     </td>
                                                 }
-                                                <td className="">
-                                                    <div onClick={() => handleVote(token?._id)} className="flex justify-center  items-center">
-                                                        <span className="py-3 px-4 rounded hover:bg-white bg-gray-100 dark:text-gray-200 dark:hover:text-white dark:bg-gray-700 dark:border-b-4 dark:border-gray-900 dark:hover:bg-gray-900 flex flex-col items-center cursor-pointer hover:scale-125">
+                                                <td className="px-6 cursor-pointer">
+                                                    <div onClick={() => handleVote(token?._id)} className="relative flex items-center justify-center px-1 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-indigo-500 rounded-full shadow-xl group">
+                                                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-indigo-500 group-hover:translate-x-0 ease">
                                                             <BiUpArrow />
                                                             <h1 className="font-bold text-center">{token?.vote}</h1>
                                                         </span>
+                                                        <span className="absolute flex items-center justify-center w-full h-full text-indigo-500 transition-all duration-300 transform group-hover:translate-x-full ease">Vote</span>
+                                                        <span className="relative invisible">Vote</span>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -201,6 +202,7 @@ function TokenListTable() {
                             <Pagination
                                 totalItems={tokenLength}
                                 itemsPerPage={5}
+                                pageNeighbours={1}
                                 withProgressBar={true}
                                 onPageСhange={(currentPage) => { router.push("/?p=" + currentPage + "&as=" + router.query.as); }}
                                 customClassNames={{

@@ -76,6 +76,19 @@ export const addToken = async (token, router) => {
     }
 }
 
+// AddNews
+export const addNews = async (news, router) => {
+    try {
+        await publicRequest.post("/news/newArticle", news);
+        toast.success("The News was successfully added.");
+        setTimeout(() => {
+            router.push('/news')
+        }, 3000)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 // uploadImage
 export const uploadImage = async (data) => {
     try {
@@ -114,6 +127,33 @@ export const fetchRandomTokens = async () => {
     }
 }
 
+//most claps
+export const getMostClaps = async () => {
+    try {
+        return await publicRequest.get("/news/mostClaps");
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+//get promoted news
+export const getPromotedNews = async () => {
+    try {
+        return await publicRequest.get("/news/promoted");
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+//get news
+export const getNews = async (count) => {
+    try {
+        return await publicRequest.get("/news/getNews?count=" + count);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 //Fetch a token
 export const fetchToken = async (token) => {
     try {
@@ -124,10 +164,29 @@ export const fetchToken = async (token) => {
     }
 }
 
+//Fetch a token
+export const fetchNews = async (news) => {
+    try {
+        return await publicRequest.get("/news/find/" + news);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 // vote Token
 export const voteToken = async (user_id, token_id) => {
     try {
         const res = await publicRequest.post("/token/vote/" + token_id, { user_id });
+        toast.success(res.data)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+// Clap News
+export const clapNews = async (user_id, news_id) => {
+    try {
+        const res = await publicRequest.post("/news/clap/" + news_id, { user_id });
         toast.success(res.data)
     } catch (error) {
         console.log(error)
@@ -217,6 +276,20 @@ export const deleteToken = async (id,router) => {
     }
 };
 
+//Delete News
+export const deleteNews = async (id,router) => {
+    try {
+        await publicRequest.delete("/news/" + id).then((res) =>{
+            toast.success(res?.data);
+            setTimeout(() => {
+                router.push('/news')
+            }, 3000)
+        })
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 //Update token
 export const updateToken = async (id, token, router ) => {    
         await publicRequest.put("/token/"+id, token).then((res)=>{
@@ -228,6 +301,27 @@ export const updateToken = async (id, token, router ) => {
             console.log(err)
         })
     
+}
+
+//Update News
+export const updateNews = async (id, news, router ) => {    
+    await publicRequest.put("/news/"+id, news).then((res)=>{
+        toast.success(res?.data?.message);
+        setTimeout(() => {
+            router.push('/news')
+        }, 3000)
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
+//Get User's News
+export const getUserNews = async (user_id) => {
+    try {
+        return await publicRequest.get("/news/getUsersNews/" + user_id);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 

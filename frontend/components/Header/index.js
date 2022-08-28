@@ -12,8 +12,8 @@ const Header = () => {
     const router = useRouter()
     const { currentUser } = useSelector((state) => state.auth)
     return (
-        <nav className="w-full container border-b border-white">
-            <div className="py-5 md:py-0 dark:bg-gray-900 mx-auto px-6 flex items-center justify-between">
+        <nav className="w-full container border-b border-gray-400 dark:border-gray-400">
+            <div className="py-5 md:py-0 bg-primary dark:bg-[#212121] mx-auto px-6 flex items-center justify-between">
                 {/* Logo Section */}
                 <div className='cursor-pointer '>
                     <Link href="/">
@@ -58,10 +58,15 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-125 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
+                                <Link href="/news">
+                                    <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>News</h1>
+                                </Link>
+                            </li>
+                            <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-125 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
                                 <Link href="/contact">
                                     <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Contact</h1>
                                 </Link>
-                            </li>
+                            </li>                            
                             {currentUser == null ?
                                 <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-125 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
                                     <Link href="/auth">
@@ -83,7 +88,7 @@ const Header = () => {
                         <UserAvatar />
                     </div>
                     :
-                    <button onClick={() => router.push("/auth")} className="focus:outline-none lg:text-lg lg:font-bold focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 hidden md:block bg-transparent transition duration-150 ease-in-out hover:bg-gray-200 rounded border border-indigo-700 text-indigo-700 px-4 sm:px-8 py-1 sm:py-3 text-sm">Sign In</button>
+                    <button onClick={() => router.push("/auth")} className="focus:outline-none lg:text-lg lg:font-bold focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 hidden md:block bg-transparent transition duration-150 ease-in-out hover:bg-tertiary rounded border border-indigo-700 text-indigo-700 px-4 sm:px-8 py-1 sm:py-3 text-sm">Sign In</button>
                 }
 
             </div>

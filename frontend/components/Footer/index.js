@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiTwitter, FiInstagram,FiYoutube } from "react-icons/fi";
+import { FiTwitter, FiInstagram, FiYoutube } from "react-icons/fi";
 import { FaTelegramPlane } from "react-icons/fa";
 const Footer = () => {
     return (
@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="lg:flex flex-col">
                 <div className="py-16 flex flex-col justify-center items-center cursor-pointer">
                     <Link href="/">
-                        <h1 className='text-5xl font-black dark:text-white'>L<span className='text-indigo-700'>o</span>T</h1>
+                        <img className='h-16 w-20' src='/logo.png' alt='logo' />
                     </Link>
                 </div>
                 <div className="w-full px-6 pb-10">
@@ -40,7 +40,7 @@ const Footer = () => {
                                 </a>
                             </Link>
                         </li>
-                        
+
                     </ul>
                 </div>
                 <div className="w-full px-6">
@@ -48,6 +48,11 @@ const Footer = () => {
                         <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0">
                             <Link href="/addToken">
                                 Add Token
+                            </Link>
+                        </li>
+                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
+                            <Link href="/news">
+                                News
                             </Link>
                         </li>
                         <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">

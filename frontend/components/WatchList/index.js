@@ -28,7 +28,7 @@ const Profile = ({ user}) => {
 
   return (
     <div className="container mx-auto min-h-screen  w-full py-20 sm:px-6">
-      <div className="justify-center items-center px-4 md:px-10 py-4 md:py-7 bg-gray-100 dark:bg-gray-900 rounded-tl-lg rounded-tr-lg">
+      <div className="border-r border-l border-t border-gray-300 shadow-2xl shadow-gray-400 dark:shadow-gray-800 dark:border-gray-700 justify-center items-center px-4 md:px-10 py-4 md:py-7 bg-secondary dark:bg-[#252525] rounded-tl-lg rounded-tr-lg ">
         <div className="sm:flex items-center justify-between">
           <div className='flex items-center'>
             <img
@@ -43,11 +43,11 @@ const Profile = ({ user}) => {
           }
         </div>
       </div>
-      <div className="bg-white dark:bg-gray-800 shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
-        <div className="bg-white dark:bg-gray-800 shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
+      <div className="bg-secondary dark:bg-[#313131] px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto border-r border-l border-b dark:border-gray-700 border-gray-300 shadow-2xl shadow-gray-400 dark:shadow-gray-800">
+        <div className="bg-quaternary dark:bg-[#313131] shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
 
           {token?.length == 0 ?
-            <div className='flex justify-center items-center'>
+            <div className='flex justify-center items-center '>
               <h1 className='text-2xl font-bold text-indigo-700'>Add a token in your Watch List</h1>
             </div>
             :
@@ -65,11 +65,11 @@ const Profile = ({ user}) => {
               {token?.map((token, key) => {
                 return (
                   <tbody key={key} className="w-full cursor-pointer">
-                    <tr className="h-20 text-sm leading-none text-gray-800 bg-white dark:bg-gray-700 hover:bg-gray-100 border-b border-t border-gray-100">
+                    <tr className="h-20 text-sm leading-none text-gray-800 bg-tertiary dark:bg-[#212121] hover:dark:bg-[#414141] hover:bg-secondary border-b border-t border-gray-300 dark:border-gray-700">
                       <td className="">
                         {currentUser?._id == user &&
                           <div onClick={() => handleWatchList(token?._id)} className="flex justify-center  items-center">
-                            <span className="p-4 rounded-2xl hover:bg-white bg-gray-100 dark:bg-gray-900 flex-col cursor-pointer hover:animate-spin">
+                            <span className="p-4 rounded-2xl hover:bg-tertiary bg-quaternary dark:bg-[#313131] flex-col cursor-pointer hover:animate-spin">
                               <AiTwotoneStar size={24} className="fill-yellow-300" />
                             </span>
                           </div>}

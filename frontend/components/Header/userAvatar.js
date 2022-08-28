@@ -23,16 +23,16 @@ function UserAvatar() {
                     onClick={() => setshow(!show)}
                 >
                     {show && (
-                        <ul className="p-2 w-40 border-r bg-white absolute rounded z-40 right-0 shadow mt-16  top-0">
-                            <li onClick={()=> router.push("/profile/"+currentUser?._id)} className="cursor-pointer text-gray-700 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
+                        <ul className="p-2 w-40 border-r border-indigo-500 bg-secondary dark:bg-[#313131] absolute rounded z-40 right-0 shadow mt-16  top-0">
+                            <li onClick={()=> router.push("/profile/"+currentUser?._id)} className="cursor-pointer hover:bg-tertiary dark:hover:bg-[#414141] px-2 text-gray-700 dark:text-white text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
                                 <FaUserCircle/>
                                 <span className="ml-2">Profile</span>
                             </li>
-                            <li onClick={()=> router.push("/watchlist/"+currentUser?._id)} className="cursor-pointer text-gray-700 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
+                            <li onClick={()=> router.push("/watchlist/"+currentUser?._id)} className="cursor-pointer hover:bg-tertiary dark:hover:bg-[#414141] px-2 text-gray-700 dark:text-white text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
                                 <BsFillBookmarkStarFill/>
                                 <span className="ml-2">Watch List</span>
                             </li>
-                            <li onClick={() => signOut()} className="cursor-pointer text-gray-700 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
+                            <li onClick={() => signOut()} className="cursor-pointer hover:bg-tertiary dark:hover:bg-[#414141] px-2 text-gray-700 dark:text-white text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5"

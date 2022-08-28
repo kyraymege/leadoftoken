@@ -15,7 +15,7 @@ function Signup() {
             <Head>
                 <meta name="description" content="Feel the privileges of Lead Of Token by Signing up now." />
             </Head>
-            <div className="dark:bg-gray-900 w-full flex flex-col items-center">
+            <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
                 <Header />
                 <ToastContainer />
                 <div className="flex flex-col w-full">
