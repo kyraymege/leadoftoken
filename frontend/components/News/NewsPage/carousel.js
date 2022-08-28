@@ -29,7 +29,7 @@ export default function Carousel() {
                                 <path d="M7 1L1 7L7 13" stroke="black" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </ButtonBack>
-                        <Slider className="cursor-pointer" onClick={()=>router.push("/news/"+news?._id)}>
+                        <Slider className="cursor-pointer" onClick={() => router.push("/news/" + news?._id)}>
                             {mostClaps?.map((news, key) => {
                                 return (
                                     <Slide>
@@ -88,7 +88,7 @@ export default function Carousel() {
                         <Slider className="carousel__sliderLarge cursor-pointer">
                             {mostClaps?.map((news, index) => {
                                 return (
-                                    <Slide onClick={()=>router.push("/news/"+news?._id)} key={index} className="carousel__inner-slideLarge">
+                                    <Slide onClick={() => router.push("/news/" + news?._id)} key={index} className="carousel__inner-slideLarge">
                                         <div className="gallery-cell w-full h-full ">
                                             <div className="relative w-full h-full lg:block hidden ">
                                                 <span className="absolute bg-yellow-500 px-6 py-4 text-lg font-bold rounded">{index + 1}</span>

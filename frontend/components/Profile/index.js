@@ -8,7 +8,7 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 import { useRouter } from 'next/router';
 import 'react-toastify/dist/ReactToastify.css';
 
-const profileComponent = ({ user }) => {
+const ProfileComponent = ({ user }) => {
   const { currentUser } = useSelector((state) => state.auth);
   const [profileUser, setProfileUser] = useState();
   const [profileTokens, setProfileTokens] = useState([]);
@@ -16,13 +16,13 @@ const profileComponent = ({ user }) => {
   const [editToken, setEditToken] = useState();
   const [onEdit, setOnEdit] = useState(false);
   const router = useRouter();
+
   useEffect(() => {
     const res = getUser(user);
     res?.then((res) => {
       setProfileUser(res?.data);
       getUserNews(user).then((response) => {
         setUserNews(response?.data);
-        console.log(response?.data);
       })
     })
 
@@ -91,12 +91,12 @@ const profileComponent = ({ user }) => {
           </div>
         </div>
 
-        
-          <NewsCard news={userNews}/>
-        
+
+        <NewsCard news={userNews} />
+
       </div>
     </div>
   )
 }
 
-export default profileComponent
+export default ProfileComponent

@@ -36,12 +36,12 @@ function ShareWith({ user }) {
                         </ul>
                     )}
 
-                    <div onClick={() => setshow(!show)} class="relative inline-flex items-center px-10 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
-                        <span class="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-                        <span class="absolute right-3 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                    <div onClick={() => setshow(!show)} className="relative inline-flex items-center px-10 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
+                        <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                        <span className="absolute right-3 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                             <BsFillShareFill className="ml-6 dark:fill-white fill-gray-800" size={20} />
                         </span>
-                        <span class="relative">Share With</span>
+                        <span className="relative">Share With</span>
                     </div>
                 </div>
             </div>

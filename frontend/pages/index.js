@@ -11,12 +11,15 @@ import { useRouter } from "next/router";
 
 function Home() {
     const dispatch = useDispatch();
+    const router = useRouter();
+
     useEffect(() => {
         if (!document.cookie.includes("access_token")) {
             logOut(dispatch);
         }
     }, [])
-    const router = useRouter();
+
+
 
     return (
         <div className="flex flex-col ">
@@ -31,7 +34,7 @@ function Home() {
                 <Header />
                 <ToastContainer />
                 <PromotedTokenList />
-                <div onClick={()=>router.push("/contact")} className='relative mt-10 container cursor-pointer'>
+                <div onClick={() => router.push("/contact")} className='relative mt-10 container cursor-pointer'>
                     <div className="absolute -inset-1 bg-gradient-to-r from-indigo-300 via-indigo-700 to-indigo-500 rounded blur animate-pulse" />
                     <img className='relative' src='https://storage.googleapis.com/coinsniper-assets/images/RCNyaANXFfrDQchhhVFRCZFob9w0c5ctl32QQ6R4.gif' />
                 </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getMostClaps } from '../../../redux/apiCalls'
 import { PF } from '../../../redux/requestMethods'
 
-const mostClaps = () => {
+const MostClaps = () => {
     const [mostClaps, setMostClaps] = useState()
     useEffect(() => {
         getMostClaps().then(res => {
@@ -44,4 +44,4 @@ const mostClaps = () => {
     )
 }
 
-export default mostClaps
+export default MostClaps
