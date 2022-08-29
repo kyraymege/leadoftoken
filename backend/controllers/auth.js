@@ -55,6 +55,7 @@ const googleAuth = async (req, res, next) => {
       const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, { expiresIn: "5d" });
       res.cookie("access_token", token, {
         httpOnly: false,
+        sameSite: "none",
         expires: new Date(Date.now() + (30 * 24 * 3600000))
       })
       res.status(200).json(user._doc)
@@ -66,6 +67,7 @@ const googleAuth = async (req, res, next) => {
       const token = jwt.sign({ id: savedUser._id }, process.env.SECRET_KEY, { expiresIn: "5d" });
       res.cookie("access_token", token, {
         httpOnly: false,
+        sameSite: "none",
         expires: new Date(Date.now() + (30 * 24 * 3600000))
       })
       res.status(200).json(savedUser._doc)

@@ -5,20 +5,20 @@ import Footer from "../components/Footer/index"
 import PromotedTokenList from "../components/Tokens/PromotedTokenList";
 import Head from "next/head";
 import { ToastContainer } from 'react-toastify'
-// import { logOut } from "../redux/apiCalls";
-// import { useDispatch } from "react-redux";
+import { logOut } from "../redux/apiCalls";
+import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-// import { getCookie } from 'cookies-next';
+import { getCookie } from 'cookies-next';
 
 function Home() {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const router = useRouter();
 
-    // useEffect(() => {
-    //     if (getCookie("access_token") === undefined) {
-    //         logOut(dispatch);
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (getCookie("access_token") === undefined) {
+            logOut(dispatch);
+        }
+    }, [])
 
 
 

@@ -15,8 +15,8 @@ const PORT = process.env.PORT || 8800;
 const app = express();
 
 app.use(cookieParser());
-app.use(cors({    
-    origin: "https://www.leadoftoken.com",    
+app.use(cors({
+    origin: "https://www.leadoftoken.com",
     // origin: true,
     credentials: true,
 }
