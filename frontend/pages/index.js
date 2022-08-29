@@ -15,12 +15,10 @@ function Home() {
     const router = useRouter();
 
     useEffect(() => {
-        setTimeout(() => {
-            if (getCookie("access_token") === undefined) {
-                logOut(dispatch);
-            }
-        }, 3000);
-
+        console.log(getCookie('acces_token'));
+        if (getCookie("access_token") === undefined) {
+            logOut(dispatch);
+        }
     }, [])
 
 
