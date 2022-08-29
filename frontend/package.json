@@ -11,12 +11,12 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
     "axios": "^0.27.2",
+    "cookies-next": "^2.1.1",
     "dompurify": "^2.4.0",
     "draft-js": "^0.11.7",
     "draft-js-export-html": "^1.4.1",
     "draftjs-to-html": "^0.9.1",
     "firebase": "^9.9.1",
-    "js-cookie": "^3.0.1",
     "moment": "^2.29.3",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
