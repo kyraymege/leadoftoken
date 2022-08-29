@@ -15,7 +15,7 @@ router.delete("/:id", verify, deleteNews)
 router.put("/:id", verify, updateNews)
 
 //FIND NEWS
-router.get("/find/:id", verify, findNews)
+router.get("/find/:id", findNews)
 
 //Most Claps
 router.get("/mostClaps",  mostClaps)
