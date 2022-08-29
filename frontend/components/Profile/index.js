@@ -32,7 +32,9 @@ const ProfileComponent = ({ user }) => {
   }, [])
 
   const handleDeleteToken = (id) => {
-    deleteToken(id, router);
+    if (confirm("Are you sure you want to delete this token?")) {
+      deleteToken(id, router);
+    }
   }
 
   return (

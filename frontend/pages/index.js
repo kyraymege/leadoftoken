@@ -8,14 +8,15 @@ import { ToastContainer } from 'react-toastify'
 import { logOut } from "../redux/apiCalls";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
+import Cookies from 'js-cookie'
 
 function Home() {
     const dispatch = useDispatch();
     const router = useRouter();
 
-    useEffect(() => {
-        console.log(document.cookie);
-        if (!document.cookie.includes("access_token")) {
+    useEffect(() => {   
+        console.log(Cookies.get('access_token'))     
+        if (Cookies.get("access_token")===undefined) {
             logOut(dispatch);
         }
     }, [])

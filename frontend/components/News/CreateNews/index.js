@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState, convertToRaw } from 'draft-js';
 import dynamic from 'next/dynamic'
@@ -8,6 +8,7 @@ import { MdOutlineImageNotSupported } from 'react-icons/md'
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { addNews, uploadImage } from '../../../redux/apiCalls';
+import { toast } from 'react-toastify';
 const Editor = dynamic(() => import('react-draft-wysiwyg').then(module => module.Editor), { ssr: false })
 
 
@@ -17,7 +18,17 @@ const CreateNewsComponent = () => {
     const [file, setFile] = useState(null);
     const { currentUser } = useSelector((state) => state.auth)
     const router = useRouter();
-    
+
+    useEffect(() => {
+        if (!currentUser) {
+            toast.warn("You must be logged in to create a news")
+            setTimeout(() => {                
+                router.push("/auth")
+            }, 1000)
+        }
+    }, [currentUser])
+
+
     const onEditorStateChange = (editorState) => {
         setEditorState(editorState)
     }
@@ -25,8 +36,10 @@ const CreateNewsComponent = () => {
     const saveArticle = (e) => {
         e.preventDefault();
         if (title === "" || editorState.getCurrentContent().getPlainText() === "") {
-            alert("Please fill all fields")
-        } else {
+            toast.warn("Please fill all fields")
+        }else if (!currentUser){
+            toast.warn("You must be logged in to create a news")
+        }else {
             if (file) {
                 const data = new FormData();
                 const filename = "newsImage-" + currentUser?._id + "-" + Date.now() + "-" + file.name;
