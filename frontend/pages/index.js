@@ -14,6 +14,7 @@ function Home() {
     const router = useRouter();
 
     useEffect(() => {
+        console.log(document.cookie);
         if (!document.cookie.includes("access_token")) {
             logOut(dispatch);
         }
