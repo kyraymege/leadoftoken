@@ -17,7 +17,7 @@ function Home() {
     useEffect(() => {
         console.log(getCookie('acces_token'));
         if (getCookie("access_token") === undefined) {
-            logOut(dispatch);
+            console.log("No cookie!")
         }
     }, [])
 
