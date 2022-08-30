@@ -15,9 +15,8 @@ function Home() {
     const router = useRouter();
 
     useEffect(() => {
-        console.log(getCookie('acces_token'));
         if (getCookie("access_token") === undefined) {
-            console.log("No cookie!")
+            logOut(dispatch);
         }
     }, [])
 

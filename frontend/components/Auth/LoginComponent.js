@@ -25,7 +25,7 @@ export default function LoginComponent() {
 
     const signInWithGoogle = async () => {
         signInWithPopup(auth, googleProvider)
-            .then((result) => {                
+            .then((result) => {
                 loginWithGoogle(dispatch, result, router);
             }).catch((err) => {
                 console.log(err)
@@ -51,7 +51,7 @@ export default function LoginComponent() {
                 <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center ">
 
                     <div className="bg-secondary dark:bg-[#252525] rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6 shadow-2xl shadow-gray-800">
-                        
+
                         <p className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 dark:text-white">
                             Login to your account
                         </p>
@@ -61,7 +61,7 @@ export default function LoginComponent() {
                                 <p className="hover:text-gray-500 ml-2 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 dark:text-gray-400 dark:hover:text-white cursor-pointer">Sign up here</p>
                             </Link>
                         </div>
-                        
+
                         <button onClick={signInWithGoogle} aria-label="Continue with google" role="button" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 dark:border-gray-500 flex items-center w-full mt-10 hover:bg-tertiary dark:hover:bg-[#212121]">
                             <FcGoogle size={24} />
                             <p className="text-base font-medium ml-4 text-gray-700 dark:text-gray-400">Continue with Google</p>
@@ -103,7 +103,7 @@ export default function LoginComponent() {
                                 </div>
                             </div>
                         </div>
-                        {error==true ?
+                        {error == true ?
                             <div className="bg-red-300 p-3 rounded-lg mt-6">
                                 <p className="text-gray-700">Please check your Email and Password. It may be an incorrect or used mail.</p>
                             </div>
