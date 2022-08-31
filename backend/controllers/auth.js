@@ -37,8 +37,8 @@ const login = async (req, res, next) => {
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, { expiresIn: "5d" });
     const { password, ...others } = user._doc;
     res.cookie("access_token", token, {
-      secure: true,
-      sameSite: "none",
+      httpOnly: false,
+      domain: '.leadoftoken.com',
       expires: new Date(Date.now() + (30 * 24 * 3600000))
     })
     res.status(200).json(others)
@@ -55,8 +55,8 @@ const googleAuth = async (req, res, next) => {
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, { expiresIn: "5d" });
       res.cookie("access_token", token, {
-        secure: true,
-        sameSite: "none",
+        httpOnly: false,
+        domain: '.leadoftoken.com',
         expires: new Date(Date.now() + (30 * 24 * 3600000))
       })
       res.status(200).json(user._doc)
@@ -67,8 +67,8 @@ const googleAuth = async (req, res, next) => {
       const savedUser = await newUser.save();
       const token = jwt.sign({ id: savedUser._id }, process.env.SECRET_KEY, { expiresIn: "5d" });
       res.cookie("access_token", token, {
-        secure: true,
-        sameSite: "none",
+        httpOnly: false,
+        domain: '.leadoftoken.com',
         expires: new Date(Date.now() + (30 * 24 * 3600000))
       })
       res.status(200).json(savedUser._doc)

@@ -91,9 +91,12 @@ function TokenListTable() {
                                             {activeStatus == 4 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
                                         </li>
                                     </ul>
-                                </div>
+                                </div>                               
                             </div>
-                            {isFetching ?
+                            <div className="border border-gray-300 dark:border-gray-700">
+                            <img className='lg:max-w-2xl max-w-sm h-full relative' src='https://cdn.coinmooner.com/mooners/1022x115_EN_[around-the-world-adventure].jpg' alt='ad' />
+                            </div>
+                            {/* {isFetching ?
                                 <div className='flex items-center mx-auto'>
                                     <p className='text-9xl font-extrabold text-indigo-700 animate-bounce'>L</p>
                                     <BiLoaderCircle className='animate-spin fill-indigo-500' size={96} />
@@ -119,7 +122,7 @@ function TokenListTable() {
                                             <p className="">{yesterdayBestToken?.token_name}</p>
                                         </div>
                                     </div>
-                                </>}
+                                </>} */}
                         </div>
 
                     </div>

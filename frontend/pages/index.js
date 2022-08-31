@@ -9,6 +9,7 @@ import { logOut } from "../redux/apiCalls";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { getCookie } from 'cookies-next';
+import AdSection from "../components/Tokens/AdSection";
 
 function Home() {
     const dispatch = useDispatch();
@@ -34,8 +35,9 @@ function Home() {
             <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
                 <Header />
                 <ToastContainer />
+                <AdSection />
                 <PromotedTokenList />
-                <div onClick={() => router.push("/contact")} className='relative mt-10 container cursor-pointer'>
+                <div onClick={() => router.push("/contact")} className='relative mt-10 container cursor-pointer max-w-sm lg:max-w-7xl'>
                     <div className="absolute -inset-1 bg-gradient-to-r from-indigo-300 via-indigo-700 to-indigo-500 rounded blur animate-pulse" />
                     <img className='relative' src='https://storage.googleapis.com/coinsniper-assets/images/RCNyaANXFfrDQchhhVFRCZFob9w0c5ctl32QQ6R4.gif' />
                 </div>
