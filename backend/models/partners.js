@@ -14,7 +14,6 @@ const partnerSchema = new mongoose.Schema({
     partner_youtube_link: {
         type: String,
         trim: true,
-        unique: true
     },
     partner_youtube_subs: {
         type: String,
@@ -23,7 +22,6 @@ const partnerSchema = new mongoose.Schema({
     partner_twitter_link: {
         type: String,
         trim: true,
-        unique: true
     },
     partner_twitter_followers: {
         type: String,
@@ -32,7 +30,6 @@ const partnerSchema = new mongoose.Schema({
     partner_telegram_link: {
         type: String,
         trim: true,
-        unique: true
     },
     partner_telegram_followers: {
         type: String,
@@ -41,7 +38,6 @@ const partnerSchema = new mongoose.Schema({
     partner_tiktok_link: {
         type: String,
         trim: true,
-        unique: true
     },
     partner_tiktok_followers: {
         type: String,

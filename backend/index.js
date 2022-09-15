@@ -17,7 +17,7 @@ const app = express();
 
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://www.leadoftoken.com",
+    origin: ["https://www.leadoftoken.com","https://agency.leadoftoken.com"],
     // origin: true,
     credentials: true,
 }
