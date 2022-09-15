@@ -7,8 +7,7 @@ const AdSection = () => {
     const [yesterdayBest, setYesterdayBest] = useState()
     useEffect(() => {
         getYesterdaysBestToken().then((res) => {
-            setYesterdayBest(res.data);
-            console.log(res?.data)
+            setYesterdayBest(res?.data);
         })
     }, [])
 
