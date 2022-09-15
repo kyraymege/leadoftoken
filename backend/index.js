@@ -7,6 +7,7 @@ const tokenRoute = require("./routes/tokens.js");
 const userRoute = require("./routes/user.js");
 const authRoute = require("./routes/auth.js");
 const newsRoute = require("./routes/news.js");
+const partnersRoute = require("./routes/partners.js");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 
@@ -16,8 +17,8 @@ const app = express();
 
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://www.leadoftoken.com",
-    // origin: true,
+    // origin: "https://www.leadoftoken.com",
+    origin: true,
     credentials: true,
 }
 ));
@@ -26,6 +27,7 @@ app.use("/api/token", tokenRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/news", newsRoute);
+app.use("/api/partners", partnersRoute);
 app.use("/tokenlogos", express.static(path.join(__dirname, "/tokenlogos")))
 
 const storage = multer.diskStorage({
@@ -42,11 +44,11 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 })
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-    console.log("MongoDB connected");
+    console.log("| MongoDB connected         |\n=============================");
 }).catch((error) => console.log(error))
 
 app.listen(PORT, () => {
-    console.log("Backend server is running")
+    console.log("=============================\n| Backend server is running |\n=============================")
 })
 
 

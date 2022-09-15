@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     password: {
-        type: String,        
+        type: String,
         min: 6,
     },
     token_watchList: [{

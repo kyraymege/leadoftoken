@@ -127,6 +127,16 @@ function TokenDetails({ token }) {
                             <div className="w-full lg:w-1/3 p-6">
                                 <img className="object-contain rounded-xl w-full h-full" src={PF + tokenn?.token_image} />
                             </div>
+                            <div className="px-6 cursor-pointer lg:hidden w-full">
+                                <div onClick={() => handleVote(tokenn?._id)} className="relative flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-indigo-500 rounded-full shadow-xl group">
+                                    <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-indigo-500 group-hover:translate-x-0 ease">
+                                        <BiUpArrow />
+                                        <h1 className="font-bold text-center">{tokenn?.vote}</h1>
+                                    </span>
+                                    <span className="absolute flex items-center justify-center w-full h-full text-indigo-500 transition-all duration-300 transform group-hover:translate-x-full ease">Vote</span>
+                                    <span className="relative invisible">Vote</span>
+                                </div>
+                            </div>
                             <div className="w-full items-start flex  p-6  justify-between">
                                 <div className="flex flex-col">
                                     <div className="w-full items-start flex lg:flex-row flex-col gap-x-6">
@@ -146,10 +156,10 @@ function TokenDetails({ token }) {
                                                 <p id="contractAddress" className="pr-4 text-lg font-thin text-gray-500 break-all ml-2">This Token on Presale now!</p>
                                             </div>
                                             :
-                                            <>
-                                                <p id="contractAddress" className="pr-4 text-lg font-thin text-gray-500 break-all">{tokenn?.token_contractAddress}</p>
+                                            <div className="break-all">
+                                                <p id="contractAddress" className="pr-4 lg:text-lg text-md font-thin text-gray-500 break-all">{tokenn?.token_contractAddress}</p>
                                                 <AiFillCopy onClick={() => { copyToClipboard("contractAddress"); toast.success("coppied!") }} className="mt-1 cursor-pointer dark:text-white hover:scale-125" />
-                                            </>
+                                            </div>
                                         }
                                     </div>
                                     <div className="flex gap-4 items-center py-6">
@@ -200,29 +210,29 @@ function TokenDetails({ token }) {
                                         </div>
 
                                     </div>
-                                    <div className="flex gap-4 items-center py-6">
+                                    <div className="flex flex-col lg:flex-row gap-4 items-center py-6">
                                         {tokenn?.isPresale == false ?
-                                            <>
+                                            <div className="flex lg:flex-row flex-col gap-4">
                                                 <div className="flex flex-col ">
                                                     <p className="text-gray-400 text-sm lg:text-lg">Price <span className={toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd) < 0 ? 'text-red-500' : 'text-green-500'}>% {((toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd)) / toFixed(chart?.priceUsd) * 100).toFixed(2)}</span></p>
                                                     {chart == undefined ?
-                                                        <p className="font-medium dark:text-white">${tokenn?.token_price}</p> : <p className="font-medium">${toFixed(chart?.priceUsd)}</p>}
+                                                        <p className="font-medium dark:text-white lg:text-lg text-sm">${tokenn?.token_price}</p> : <p className="font-medium lg:text-lg text-sm">${toFixed(chart?.priceUsd)}</p>}
                                                 </div>
-                                                <span className="w-px h-10 bg-gray-300" />
+                                                <span className="w-px h-10 bg-gray-300 hidden lg:block mt-2" />
                                                 <div className="flex flex-col ">
                                                     <p className="text-gray-400">Market Cap</p>
                                                     {chart == undefined ?
-                                                        <p className="font-medium dark:text-white text-sm lg:text-lg">${tokenn?.token_marketcap}</p> : <p className="font-medium text-sm lg:text-lg">${(Math.round(parseInt(chart?.marketCapUsd) * 100) / 100).toLocaleString()}</p>}
+                                                        <p className="font-medium dark:text-white text-sm lg:text-lg ">${tokenn?.token_marketcap}</p> : <p className="font-medium text-sm lg:text-lg">${(Math.round(parseInt(chart?.marketCapUsd) * 100) / 100).toLocaleString()}</p>}
                                                 </div>
-                                            </>
+                                            </div>
                                             :
                                             <>
                                                 <p className="px-2 py-1 bg-indigo-200 text-gray-500 font-normal rounded-full">Presale</p>
                                             </>}
-                                        <span className="w-px h-10 bg-gray-300 " />
+                                        <span className="lg:w-px lg:h-10 h-px w-10 bg-gray-300 hidden lg:block" />
                                         <div className="flex flex-col ">
                                             <p className="text-gray-400">Launch Date</p>
-                                            <p className="font-medium dark:text-gray-200">{tokenn?.launchdate}</p>
+                                            <p className="font-medium dark:text-gray-200 text-sm lg:text-lg">{tokenn?.launchdate}</p>
                                         </div>
                                     </div>
                                     <div className="small:my-12 my-8 w-3/4 border-dotted border p-6">
@@ -241,7 +251,7 @@ function TokenDetails({ token }) {
 
                                 </div>
 
-                                <div className="px-6 cursor-pointer">
+                                <div className="px-6 cursor-pointer lg:block hidden">
                                     <div onClick={() => handleVote(tokenn?._id)} className="relative flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-indigo-500 rounded-full shadow-xl group">
                                         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-indigo-500 group-hover:translate-x-0 ease">
                                             <BiUpArrow />
