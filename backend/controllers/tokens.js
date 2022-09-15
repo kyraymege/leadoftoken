@@ -539,7 +539,7 @@ const getYesterdaysBestToken = async (req, res) => {
     { $limit: 1 },
 
 
-  ]).then(token => res.status(200).json(token)).catch((err) => {
+  ]).then(token => res.status(200).json(token[0])).catch((err) => {
     res.status(500).json(err)
   })
 }

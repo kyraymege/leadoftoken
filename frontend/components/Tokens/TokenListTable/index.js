@@ -91,10 +91,11 @@ function TokenListTable() {
                                             {activeStatus == 4 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
                                         </li>
                                     </ul>
-                                </div>                               
+                                </div>
                             </div>
-                            <div className="border border-gray-300 dark:border-gray-700">
-                            <img className='lg:max-w-2xl max-w-sm h-full relative' src='https://cdn.coinmooner.com/mooners/1022x115_EN_[around-the-world-adventure].jpg' alt='ad' />
+                            <div className="border border-gray-300 relative dark:border-gray-700">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
+                                <img className='lg:max-w-2xl max-w-sm h-full relative' src='https://cdn.coinmooner.com/mooners/1022x115_EN_[around-the-world-adventure].jpg' alt='ad' />
                             </div>
                             {/* {isFetching ?
                                 <div className='flex items-center mx-auto'>
@@ -186,10 +187,12 @@ function TokenListTable() {
                                                 <td className="px-6 cursor-pointer">
                                                     <div onClick={() => handleVote(token?._id)} className="relative flex items-center justify-center px-1 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-indigo-500 rounded-full shadow-xl group">
                                                         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-indigo-500 group-hover:translate-x-0 ease">
+                                                            Vote
+                                                        </span>
+                                                        <span className="absolute flex items-center justify-center w-full h-full text-indigo-500 transition-all duration-300 transform group-hover:translate-x-full ease">
                                                             <BiUpArrow />
                                                             <h1 className="font-bold text-center">{token?.vote}</h1>
                                                         </span>
-                                                        <span className="absolute flex items-center justify-center w-full h-full text-indigo-500 transition-all duration-300 transform group-hover:translate-x-full ease">Vote</span>
                                                         <span className="relative invisible">Vote</span>
                                                     </div>
                                                 </td>

@@ -65,8 +65,8 @@ function PromotedTokenList() {
                                             <tr key={key} className="h-20 rounded-xl text-sm text-gray-700 bg-tertiary dark:bg-[#212121] hover:dark:bg-[#414141] hover:bg-secondary border-b border-t dark:border-gray-700 border-gray-300">
                                                 <td onClick={() => router.push("/token/" + token?._id)} className="pl-4 cursor-pointer">
                                                     <div className="flex items-center">
-                                                        <div className="w-10 h-10">
-                                                            <img className="w-full h-full" src={token?.token_image == "/logo.png" ? token?.token_image : PF + token?.token_image} />
+                                                        <div className="w-10 h-10 ">                                                        
+                                                            <img className="w-full h-full " src={token?.token_image == "/logo.png" ? token?.token_image : PF + token?.token_image} />
                                                         </div>
                                                         <div className="pl-4">
                                                             <p className="font-medium dark:text-gray-200 dark:hover:text-white">{token?.token_name}</p>
@@ -87,10 +87,12 @@ function PromotedTokenList() {
                                                 <td className="px-6 cursor-pointer">
                                                     <div onClick={() => handleVote(token?._id)} className="relative flex items-center justify-center px-1 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-indigo-500 rounded-full shadow-xl group">
                                                         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-indigo-500 group-hover:translate-x-0 ease">
+                                                            Vote
+                                                        </span>
+                                                        <span className="absolute flex items-center justify-center w-full h-full text-indigo-500 transition-all duration-300 transform group-hover:translate-x-full ease">
                                                             <BiUpArrow />
                                                             <h1 className="font-bold text-center">{token?.vote}</h1>
                                                         </span>
-                                                        <span className="absolute flex items-center justify-center w-full h-full text-indigo-500 transition-all duration-300 transform group-hover:translate-x-full ease">Vote</span>
                                                         <span className="relative invisible">Vote</span>
                                                     </div>
                                                 </td>

@@ -12,7 +12,7 @@ const HorizontalMostClaps = () => {
         })
     }, [])
     return (
-        <div className='flex flex-col container py-4 border dark:border-gray-700 border-gray-300 shadow-2xl shadow-gray-400 dark:shadow-gray-800 px-6 rounded-2xl bg-secondary dark:bg-[#252525]'>
+        <div className='flex flex-col relative container py-4 border dark:border-gray-700 border-gray-300 shadow-2xl shadow-gray-400 dark:shadow-gray-800 px-6 rounded-2xl bg-secondary dark:bg-[#252525]'>
             <div className='mb-6'>
                 <div className='flex gap-x-2'>
                     <h1 className="lg:text-4xl text-2xl font-bold mb-2 dark:text-gray-400 text-gray-800">Most Claps</h1>
