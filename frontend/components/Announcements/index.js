@@ -12,7 +12,7 @@ export default function Announcements({ setShow }) {
                         </span>
                         <p className="ml-3 truncate font-medium text-white">
                             <span className="md:hidden">Lead Of Token Agency Live!</span>
-                            <span className="hidden md:inline"><b>Big news!</b> We're excited to announce <b>Lead Of Token Agency!</b></span>
+                            <span className="hidden md:inline"><b>Big news!</b> We&apos;re excited to announce <b>Lead Of Token Agency!</b></span>
                         </p>
                     </div>
                     <div className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
