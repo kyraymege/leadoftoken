@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TokenListTable from "../components/Tokens/TokenListTable";
 import Header from "../components/Header/index"
 import Footer from "../components/Footer/index"
@@ -10,10 +10,12 @@ import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { getCookie } from 'cookies-next';
 import AdSection from "../components/Tokens/AdSection";
+import Announcements from "../components/Announcements";
 
 function Home() {
     const dispatch = useDispatch();
     const router = useRouter();
+    const [show, setShow] = useState(true)
 
     useEffect(() => {
         if (getCookie("access_token") === undefined) {
@@ -33,6 +35,8 @@ function Home() {
                 <meta name="description" content="You can access all the listed tokens here!" />
             </Head>
             <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
+                {show &&
+                    <Announcements setShow={setShow} />}
                 <Header />
                 <ToastContainer />
                 <AdSection />

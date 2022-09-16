@@ -14,4 +14,5 @@ router.put("/:id", updatePartner);
 //GET PARTNERS
 router.get("/getPartners", getPartners);
 
+
 module.exports = router;

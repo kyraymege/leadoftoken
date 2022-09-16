@@ -68,4 +68,6 @@ const getPartners = async (req, res) => {
     }
 }
 
+
+
 module.exports = { newPartner, deletePartner, updatePartner, getPartners };
