@@ -8,6 +8,7 @@ const userRoute = require("./routes/user.js");
 const authRoute = require("./routes/auth.js");
 const newsRoute = require("./routes/news.js");
 const partnersRoute = require("./routes/partners.js");
+const contactRoute = require("./routes/contact.js");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 
@@ -17,7 +18,7 @@ const app = express();
 
 app.use(cookieParser());
 app.use(cors({
-    origin: ["https://www.leadoftoken.com","https://agency.leadoftoken.com"],
+    origin: ["https://www.leadoftoken.com", "https://agency.leadoftoken.com"],
     // origin: true,
     credentials: true,
 }
@@ -28,6 +29,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/news", newsRoute);
 app.use("/api/partners", partnersRoute);
+app.use("/api/contact", contactRoute);
 app.use("/tokenlogos", express.static(path.join(__dirname, "/tokenlogos")))
 
 const storage = multer.diskStorage({
