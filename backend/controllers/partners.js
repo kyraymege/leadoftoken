@@ -4,7 +4,7 @@ const Partners = require("../models/partners.js");
 const newPartner = async (req, res) => {
     const { partner_name, partner_img, partner_youtube_link, partner_youtube_subs,
         partner_twitter_link, partner_twitter_followers, partner_telegram_link,
-        partner_telegram_followers, partner_tiktok_link, partner_tiktok_followers, partner_comunication , partner_price }
+        partner_telegram_followers, partner_tiktok_link, partner_tiktok_followers, partner_comunication, partner_price }
         = req.body;
     const partner = new Partners({
         partner_name: partner_name,
