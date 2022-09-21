@@ -19,7 +19,7 @@ const HorizontalMostClaps = () => {
                 </div>
                 <div className="h-1 w-20 bg-indigo-500 rounded"></div>
             </div>
-            <div className='flex overflow-x-auto scrollbar gap-x-10 snap-x snap-proximity pl-2'>
+            <div className='flex overflow-x-auto scrollbar gap-x-10 snap-x snap-proximity pl-2 min-h-[150px]'>
                 {mostClaps?.map((news, index) => {
                     return (
                         <div key={index} className='flex items-start break-all cursor-pointer snap-center'>
@@ -44,7 +44,7 @@ const HorizontalMostClaps = () => {
                 )
                 }
             </div>
-            
+
         </div >
     )
 }

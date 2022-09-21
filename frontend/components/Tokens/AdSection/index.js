@@ -14,7 +14,7 @@ const AdSection = () => {
     return (
         <div className='container py-6 flex flex-col justify-center lg:flex-row gap-y-10 gap-x-20'>
             <div className='lg:w-1/4 relative'>
-            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
+                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
                 <HorizontalMostClaps />
             </div>
             <div className=' px-6'>
@@ -24,7 +24,7 @@ const AdSection = () => {
                 </div>
             </div>
             <div className='lg:w-1/4 relative'>
-            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
+                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
                 <div className='flex relative flex-col container py-4 border dark:border-gray-700 border-gray-300 shadow-2xl shadow-gray-400 dark:shadow-gray-800 px-6 rounded-2xl bg-secondary dark:bg-[#252525]'>
                     <div className='mb-10'>
                         <div className='flex gap-x-2'>

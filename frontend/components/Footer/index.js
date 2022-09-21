@@ -56,6 +56,11 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
+                            <Link href="https://agency.leadoftoken.com/">
+                                Agency
+                            </Link>
+                        </li>
+                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
                             <Link href="/contact">
                                 Contact
                             </Link>
