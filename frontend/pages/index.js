@@ -15,7 +15,7 @@ import Announcements from "../components/Announcements";
 function Home() {
     const dispatch = useDispatch();
     const router = useRouter();
-    const [show, setShow] = useState(true)
+    // const [show, setShow] = useState(true)
 
     useEffect(() => {
         if (getCookie("access_token") === undefined) {
@@ -35,8 +35,8 @@ function Home() {
                 <meta name="description" content="You can access all the listed tokens here!" />
             </Head>
             <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
-                {show &&
-                    <Announcements setShow={setShow} />}
+                {/* {show &&
+                    <Announcements setShow={setShow} />} */}
                 <Header />
                 <ToastContainer />
                 <AdSection />
