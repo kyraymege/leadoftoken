@@ -11,7 +11,7 @@ const NewsComponent = () => {
             <div className="w-full flex justify-between mb-6 lg:mb-0 py-10 px-6">
                 <div>
                     <div className='flex gap-x-2'>
-                        <h1 className="sm:text-4xl text-5xl font-bold mb-2 dark:text-gray-400 text-gray-800">News</h1>
+                        <h1 className="sm:text-4xl text-5xl font-bold mb-2 dark:text-gray-400 text-gray-800">Project Articles</h1>
                     </div>
                     <div className="h-1 w-20 bg-indigo-500 rounded"></div>
                 </div>

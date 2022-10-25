@@ -45,22 +45,17 @@ const Footer = () => {
                 </div>
                 <div className="w-full px-6">
                     <ul className="flex text-3xl md:text-base items-center md:flex flex-col md:flex-row justify-center md:bg-transparent">
-                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0">
+                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-105 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0">
                             <Link href="/addToken">
                                 Add Token
                             </Link>
                         </li>
-                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
-                            <Link href="/news">
-                                News
+                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-105 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
+                            <Link href="/project-articles">
+                                Project Articles
                             </Link>
                         </li>
-                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
-                            <Link href="https://agency.leadoftoken.com/">
-                                Agency
-                            </Link>
-                        </li>
-                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-125 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
+                        <li className="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:scale-105 dark:hover:text-white cursor-pointer text-base font-normal lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
                             <Link href="/contact">
                                 Contact
                             </Link>
