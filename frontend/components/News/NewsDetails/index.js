@@ -90,6 +90,15 @@ const NewsDetails = ({ news }) => {
 
   return (
     <div className='flex flex-col lg:flex-row py-20 gap-y-10 gap-x-10 container items-start min-h-screen mx-auto w-full'>
+      <Meta 
+      title={"Lead Of Token | "+newsData?.title}
+      keywords={newsData?.title}
+      description={newsData?.title}
+      ogTitle={"Lead Of Token | "+newsData?.title}
+      ogType="cryptocurrency"
+      ogUrl={"https://www.leadoftoken.com/"+router.asPath}
+      ogImage={PF+newsData?.image}
+      />
       <Head>
         <title>LeadOfToken | {newsData?.title}</title>
         <meta name="LeadOfToken" content="Cryptocurrency news" />

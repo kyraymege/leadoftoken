@@ -1,12 +1,20 @@
 import React from "react";
 import Link from "next/link"
 import Head from 'next/head'
+import Meta from "../components/Meta/Meta";
 
 const Error404 = () => {
 
     return (
 
         <div className="flex items-center flex-col justify-center  py-28 px-6 md:px-24 md:py-20 lg:py-32 gap-16 lg:gap-28">
+            <Meta
+                title="Lead Of Token | 404"
+                description="Page not found"
+                ogImage="/logo.png"
+                ogUrl="https://www.leadoftoken.com/404/"
+                ogType="404"
+                ogTitle="Lead Of Token | 404" />
             <Head>
                 <title>Lead Of Token | 404</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />

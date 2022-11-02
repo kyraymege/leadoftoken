@@ -28,6 +28,15 @@ const Profile = ({ user}) => {
 
   return (
     <div className="container mx-auto min-h-screen  w-full py-20 sm:px-6">
+      <Meta
+            title={"Lead Of Token | "+watchUser?.name}
+            keywords={"Lead Of Token, "+watchUser?.name+", "+"watchlist , token watchlist, coin watchlist "}
+            description={watchUser?.name+"'s watchlist."+token?.length+" tokens and coins on watchlist."}
+            ogTitle={"Lead Of Token | "+watchUser?.name}
+            ogType="cryptocurrency"
+            ogUrl={"https://www.leadoftoken.com/"+router.asPath}
+            ogImage={"/logo.png"}
+            />  
       <div className="border-r border-l border-t border-gray-300 shadow-2xl shadow-gray-400 dark:shadow-gray-800 dark:border-gray-700 justify-center items-center px-4 md:px-10 py-4 md:py-7 bg-secondary dark:bg-[#252525] rounded-tl-lg rounded-tr-lg ">
         <div className="sm:flex items-center justify-between">
           <div className='flex items-center'>

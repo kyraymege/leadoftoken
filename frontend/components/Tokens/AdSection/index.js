@@ -33,7 +33,7 @@ const AdSection = () => {
                         <div className="h-1 w-20 bg-indigo-500 rounded"></div>
                     </div>
                     <div className='flex gap-x-6 items-center'>
-                        <img className='w-24' loading='lazy' src={PF + yesterdayBest?.token_image} alt='yesterday best token logo' />
+                        <img className='w-24 rounded-full' loading='lazy' src={PF + yesterdayBest?.token_image} alt='yesterday best token logo' />
                         <h1 className='text-xl font-bold dark:text-gray-400 text-gray-800 break-all'>{yesterdayBest?.token_name}</h1>
                     </div>
                 </div>

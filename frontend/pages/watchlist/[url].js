@@ -9,15 +9,7 @@ const WatchListPage = ({ params }) => {
   const { url } = params;
 
   return (
-    <div className="flex flex-col ">
-      <Head>
-        <title>LeadOfToken | {url}</title>
-        <meta name="LeadOfToken" content="Cryptocurrency news" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Head>
-        <meta name="description" content="To take advantage of the privileges of Lead Of Token, you can create your own watch list by logging in immediately and share it with your friends or followers!" />
-      </Head>
+    <div className="flex flex-col ">      
       <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
         <Header />
         <ToastContainer />

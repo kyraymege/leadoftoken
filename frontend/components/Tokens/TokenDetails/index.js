@@ -13,8 +13,8 @@ import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { useRouter } from 'next/router'
-import Head from 'next/head';
 import { PF } from "../../../redux/requestMethods"
+import Meta from "../../Meta/Meta";
 
 function TokenDetails({ token }) {
     const [tokenn, setTokenn] = useState({});
@@ -91,6 +91,7 @@ function TokenDetails({ token }) {
         })
 
 
+
         const interval = setInterval(() => {
             const res = fetchToken(token);
             res.then((res) => {
@@ -111,14 +112,15 @@ function TokenDetails({ token }) {
 
     return (
         <>
-            <Head>
-                <title>LeadOfToken | {tokenn?.token_name}</title>
-                <meta name="LeadOfToken" content="Cryptocurrency news" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <Head>
-                <meta name="description" content="You can get information about the token. With detailed listing information, Lead Of Token is always with you!" />
-            </Head>
+        <Meta
+            title={"Lead Of Token | "+tokenn?.token_name}
+            keywords={tokenn?.token_name+", "+tokenn?.token_symbol+", "+tokenn?.token_name+" "+tokenn?.token_symbol+", "+tokenn?.token_name+" "+tokenn?.token_symbol+" token, "+tokenn?.token_name+" "+tokenn?.token_symbol+" coin, "+tokenn?.token_name+" "+tokenn?.token_symbol+" voting, "+tokenn?.token_name+" "+tokenn?.token_symbol+" vote, "+tokenn?.token_name+" "+tokenn?.token_symbol+" vote site, "+tokenn?.token_name+" "+tokenn?.token_symbol+" token voting, "+tokenn?.token_name+" "+tokenn?.token_symbol+" coin voting, "+tokenn?.token_name+" "+tokenn?.token_symbol+" token vote, "+tokenn?.token_name+" "+tokenn?.token_symbol+" coin vote, "+tokenn?.token_name+" "+tokenn?.token_symbol+" vote site"}
+            description={tokenn?.token_description}
+            ogTitle={"Lead Of Token | "+tokenn?.token_name}
+            ogType="cryptocurrency"
+            ogUrl={"https://www.leadoftoken.com/"+router.asPath}
+            ogImage={PF+tokenn?.token_logo}
+            />           
 
             <div className="w-full  bg-primary dark:bg-[#212121]  py-10">
                 <div className="container mx-auto  lg:px-6 flex items-start justify-center">

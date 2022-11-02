@@ -3,7 +3,6 @@ import TokenListTable from "../components/Tokens/TokenListTable";
 import Header from "../components/Header/index"
 import Footer from "../components/Footer/index"
 import PromotedTokenList from "../components/Tokens/PromotedTokenList";
-import Head from "next/head";
 import { ToastContainer } from 'react-toastify'
 import { logOut } from "../redux/apiCalls";
 import { useDispatch } from "react-redux";
@@ -11,6 +10,7 @@ import { useRouter } from "next/router";
 import { getCookie } from 'cookies-next';
 import AdSection from "../components/Tokens/AdSection";
 import Announcements from "../components/Announcements";
+import Meta from "../components/Meta/Meta";
 
 function Home() {
     const dispatch = useDispatch();
@@ -27,13 +27,14 @@ function Home() {
 
     return (
         <div className="flex flex-col ">
-            <Head>
-                <title>Lead Of Token | Token Lists </title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-            </Head>
-            <Head>
-                <meta name="description" content="You can access all the listed tokens here!" />
-            </Head>
+            <Meta
+                title="Lead Of Token | Token Listings"
+                description="Lead Of Token is a token voting site where you can vote for your favorite tokens and coins."
+                ogImage="/logo.png"
+                ogUrl="https://www.leadoftoken.com/"
+                ogType="vote"
+                ogTitle="Lead Of Token | Token Listings" />
+
             <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
                 {/* {show &&
                     <Announcements setShow={setShow} />} */}

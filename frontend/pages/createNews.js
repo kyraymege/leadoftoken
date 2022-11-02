@@ -3,22 +3,22 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { ToastContainer } from 'react-toastify'
 import CreateNewsComponent from '../components/News/CreateNews';
-import Head from "next/head";
+import Meta from '../components/Meta/Meta';
 
 const createNews = () => {
   return (
     <div className="flex flex-col ">
-      <Head>
-        <title>Lead Of Token | Create News </title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Head>
-        <meta name="description" content="You can create new article on this page! Create and get Claps!" />
-      </Head>
+      <Meta
+        title="Lead Of Token | Create Article"
+        description="Create new articles about your projects or your favourite projects. Get Claps and always stay up there!"
+        ogImage="/logo.png"
+        ogUrl="https://www.leadoftoken.com/createNews/"
+        ogType="news"
+        ogTitle="Lead Of Token | Create Article" />
       <div className="dark:bg-[#212121] bg-primary w-full flex flex-col items-center">
         <Header />
         <ToastContainer />
-        <CreateNewsComponent/>
+        <CreateNewsComponent />
         <Footer />
       </div>
     </div>
