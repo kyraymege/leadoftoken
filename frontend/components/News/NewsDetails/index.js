@@ -20,6 +20,7 @@ import { toast } from 'react-toastify';
 import { useRouter } from 'next/router'
 import Head from 'next/head';
 import DOMPurify from 'dompurify'
+import Meta from '../../Meta/Meta'
 
 const NewsDetails = ({ news }) => {
   const [newsData, setNewsData] = useState()

@@ -7,6 +7,7 @@ import { addWatchList, getUser } from "../../redux/apiCalls";
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
 import {PF} from "../../redux/requestMethods"
+import Meta from "../Meta/Meta";
 
 const Profile = ({ user}) => {
   const router = useRouter();  
