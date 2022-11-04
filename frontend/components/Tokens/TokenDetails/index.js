@@ -158,7 +158,7 @@ function TokenDetails({ token }) {
                                                 <p id="contractAddress" className="pr-4 text-lg font-thin text-gray-500 break-all ml-2">This Token on Presale now!</p>
                                             </div>
                                             :
-                                            <div className="break-all">
+                                            <div className="break-all lg:flex">
                                                 <p id="contractAddress" className="pr-4 lg:text-lg text-md font-thin text-gray-500 break-all">{tokenn?.token_contractAddress}</p>
                                                 <AiFillCopy onClick={() => { copyToClipboard("contractAddress"); toast.success("coppied!") }} className="mt-1 cursor-pointer dark:text-white hover:scale-125" />
                                             </div>
@@ -216,7 +216,7 @@ function TokenDetails({ token }) {
                                         {tokenn?.isPresale == false ?
                                             <div className="flex lg:flex-row flex-col gap-4">
                                                 <div className="flex flex-col ">
-                                                    <p className="text-gray-400 text-sm lg:text-lg">Price <span className={toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd) < 0 ? 'text-red-500' : 'text-green-500'}>% {((toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd)) / toFixed(chart?.priceUsd) * 100).toFixed(2)}</span></p>
+                                                    <p className="text-gray-400 text-sm lg:text-lg">Price <span className={toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd) < 0 ? 'text-green-500' : 'text-red-500'}>% {((toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd)) / toFixed(chart?.priceUsd) * 100).toFixed(2)}</span></p>
                                                     {chart == undefined ?
                                                         <p className="font-medium dark:text-white lg:text-lg text-sm">${tokenn?.token_price}</p> : <p className="font-medium lg:text-lg text-sm">${toFixed(chart?.priceUsd)}</p>}
                                                 </div>
