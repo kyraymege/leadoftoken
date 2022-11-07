@@ -118,6 +118,14 @@ export const fetchPromotedTokens = async () => {
     }
 }
 
+export const fetchAllTokensId = async () => {
+    try {
+        return await publicRequest.get("/token/getAllTokensId").then(res => res.data);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 export const fetchRandomTokens = async () => {
     try {
         return await publicRequest.get("/token/getRandomTokens");
@@ -263,9 +271,9 @@ export const getCreatorsTokens = async (user_id) => {
 };
 
 //Delete token
-export const deleteToken = async (id,router) => {
+export const deleteToken = async (id, router) => {
     try {
-        await publicRequest.delete("/token/" + id).then((res) =>{
+        await publicRequest.delete("/token/" + id).then((res) => {
             toast.success(res?.data);
             setTimeout(() => {
                 router.push('/')
@@ -277,9 +285,9 @@ export const deleteToken = async (id,router) => {
 };
 
 //Delete News
-export const deleteNews = async (id,router) => {
+export const deleteNews = async (id, router) => {
     try {
-        await publicRequest.delete("/news/" + id).then((res) =>{
+        await publicRequest.delete("/news/" + id).then((res) => {
             toast.success(res?.data);
             setTimeout(() => {
                 router.push('/news')
@@ -291,26 +299,26 @@ export const deleteNews = async (id,router) => {
 };
 
 //Update token
-export const updateToken = async (id, token, router ) => {    
-        await publicRequest.put("/token/"+id, token).then((res)=>{
-            toast.success(res?.data?.message);
-            setTimeout(() => {
-                router.push('/token/'+id)
-            }, 3000)
-        }).catch((err)=>{
-            console.log(err)
-        })
-    
+export const updateToken = async (id, token, router) => {
+    await publicRequest.put("/token/" + id, token).then((res) => {
+        toast.success(res?.data?.message);
+        setTimeout(() => {
+            router.push('/token/' + id)
+        }, 3000)
+    }).catch((err) => {
+        console.log(err)
+    })
+
 }
 
 //Update News
-export const updateNews = async (id, news, router ) => {    
-    await publicRequest.put("/news/"+id, news).then((res)=>{
+export const updateNews = async (id, news, router) => {
+    await publicRequest.put("/news/" + id, news).then((res) => {
         toast.success(res?.data?.message);
         setTimeout(() => {
             router.push('/news')
         }, 3000)
-    }).catch((err)=>{
+    }).catch((err) => {
         console.log(err)
     })
 }

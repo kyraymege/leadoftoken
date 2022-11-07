@@ -18,7 +18,7 @@ const newToken = async (req, res) => {
     token_telegram: req.body.token_telegram,
     token_instagram: req.body.token_instagram,
     token_discord: req.body.token_discord,
-    token_reddit : req.body.token_reddit,
+    token_reddit: req.body.token_reddit,
     token_audit: req.body.token_audit,
     token_contractAddress: req.body.token_contractAddress,
     launchdate: req.body.launchdate,
@@ -64,6 +64,7 @@ const publicToken = async (req, res) => {
             token_symbol: "$token_symbol",
             launchdate: "$launchdate",
             createdAt: "$createdAt",
+            isPresale: "$isPresale",
             vote: { $size: "$vote" },
 
           }
@@ -125,6 +126,7 @@ const publicToken = async (req, res) => {
             launchdate: "$launchdate",
             token_symbol: "$token_symbol",
             createdAt: "$createdAt",
+            isPresale: "$isPresale",
             vote: { $size: "$vote" },
 
           }
@@ -161,6 +163,7 @@ const publicToken = async (req, res) => {
             token_price: "$token_price",
             token_symbol: "$token_symbol",
             launchdate: "$launchdate",
+            isPresale: "$isPresale",
             vote: { $size: "$vote" },
 
           }
@@ -198,6 +201,7 @@ const publicToken = async (req, res) => {
             launchdate: "$launchdate",
             token_symbol: "$token_symbol",
             vote: { $size: "$vote" },
+            isPresale: "$isPresale",
             createdAt: "$createdAt"
 
           }
@@ -553,22 +557,22 @@ const getSearchedToken = async (req, res) => {
   })
 }
 
-const getCreatorsTokens = async (req,res) =>{    
-  await Token.find({token_creator: req.params.user_id}).then((response)=>{
+const getCreatorsTokens = async (req, res) => {
+  await Token.find({ token_creator: req.params.user_id }).then((response) => {
     res.status(200).json(response);
-  }).catch((err)=>{
+  }).catch((err) => {
     console.log(err)
   })
 }
 
-const deleteToken = async (req,res) =>{
+const deleteToken = async (req, res) => {
   await Token.findByIdAndDelete(req.params.id);
   res.status(200).json("Token has been deleted!")
 }
 
-const updateToken = async (req, res) =>{
+const updateToken = async (req, res) => {
   try {
-    await Token.findByIdAndUpdate(req.params.id, { 
+    await Token.findByIdAndUpdate(req.params.id, {
       token_name: req.body.token_name,
       token_symbol: req.body.token_symbol,
       token_description: req.body.token_description,
@@ -579,14 +583,27 @@ const updateToken = async (req, res) =>{
       token_telegram: req.body.token_telegram,
       token_instagram: req.body.token_instagram,
       token_discord: req.body.token_discord,
-      token_reddit : req.body.token_reddit,
+      token_reddit: req.body.token_reddit,
       token_audit: req.body.token_audit,
       isPresale: req.body.isPresale,
-     }, { new: true });
-    res.status(200).json({message: "Your token updated!"});
+    }, { new: true });
+    res.status(200).json({ message: "Your token updated!" });
   } catch (error) {
     res.status(500).json(error)
   }
 }
 
-module.exports = { updateToken, deleteToken, getCreatorsTokens, newToken, publicToken, getTokenLength, getRandomTokens, unPublicToken, promoted, findToken, voteToken, addWatchList, getTodaysBestToken, getYesterdaysBestToken, getSearchedToken }
+const getAllTokensId = async (req, res) => {
+  try {
+    const token = await Token.find();
+    const tokenIdArr = token.map((token) => {
+      return token._id;
+    });
+    res.status(200).json(tokenIdArr);
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+module.exports = { updateToken, getAllTokensId, deleteToken, getCreatorsTokens, newToken, publicToken, getTokenLength, getRandomTokens, unPublicToken, promoted, findToken, voteToken, addWatchList, getTodaysBestToken, getYesterdaysBestToken, getSearchedToken }

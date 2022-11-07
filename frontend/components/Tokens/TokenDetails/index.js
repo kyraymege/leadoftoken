@@ -112,15 +112,15 @@ function TokenDetails({ token }) {
 
     return (
         <>
-        <Meta
-            title={"Lead Of Token | "+tokenn?.token_name}
-            keywords={tokenn?.token_name+", "+tokenn?.token_symbol+", "+tokenn?.token_name+" "+tokenn?.token_symbol+", "+tokenn?.token_name+" "+tokenn?.token_symbol+" token, "+tokenn?.token_name+" "+tokenn?.token_symbol+" coin, "+tokenn?.token_name+" "+tokenn?.token_symbol+" voting, "+tokenn?.token_name+" "+tokenn?.token_symbol+" vote, "+tokenn?.token_name+" "+tokenn?.token_symbol+" vote site, "+tokenn?.token_name+" "+tokenn?.token_symbol+" token voting, "+tokenn?.token_name+" "+tokenn?.token_symbol+" coin voting, "+tokenn?.token_name+" "+tokenn?.token_symbol+" token vote, "+tokenn?.token_name+" "+tokenn?.token_symbol+" coin vote, "+tokenn?.token_name+" "+tokenn?.token_symbol+" vote site"}
-            description={tokenn?.token_description}
-            ogTitle={"Lead Of Token | "+tokenn?.token_name}
-            ogType="cryptocurrency"
-            ogUrl={"https://www.leadoftoken.com/"+router.asPath}
-            ogImage={PF+tokenn?.token_logo}
-            />           
+            <Meta
+                title={"Lead Of Token | " + tokenn?.token_name}
+                keywords={tokenn?.token_name + ", " + tokenn?.token_symbol + ", " + tokenn?.token_name + " " + tokenn?.token_symbol + ", " + tokenn?.token_name + " " + tokenn?.token_symbol + " token, " + tokenn?.token_name + " " + tokenn?.token_symbol + " coin, " + tokenn?.token_name + " " + tokenn?.token_symbol + " voting, " + tokenn?.token_name + " " + tokenn?.token_symbol + " vote, " + tokenn?.token_name + " " + tokenn?.token_symbol + " vote site, " + tokenn?.token_name + " " + tokenn?.token_symbol + " token voting, " + tokenn?.token_name + " " + tokenn?.token_symbol + " coin voting, " + tokenn?.token_name + " " + tokenn?.token_symbol + " token vote, " + tokenn?.token_name + " " + tokenn?.token_symbol + " coin vote, " + tokenn?.token_name + " " + tokenn?.token_symbol + " vote site"}
+                description={tokenn?.token_description}
+                ogTitle={"Lead Of Token | " + tokenn?.token_name}
+                ogType="cryptocurrency"
+                ogUrl={"https://www.leadoftoken.com/" + router.asPath}
+                ogImage={PF + tokenn?.token_logo}
+            />
 
             <div className="w-full  bg-primary dark:bg-[#212121]  py-10">
                 <div className="container mx-auto  lg:px-6 flex items-start justify-center">
@@ -154,8 +154,7 @@ function TokenDetails({ token }) {
                                         <p className="pr-4 lg:text-lg lg:font-medium font-medium text-md dark:text-white">{tokenn?.token_network} Contract Address :</p>
                                         {tokenn?.isPresale == true ?
                                             <div className="bg-indigo-200 rounded-full py-1 px-2 flex justify-center items-center">
-                                                <FcClock size={25} />
-                                                <p id="contractAddress" className="pr-4 text-lg font-thin text-gray-500 break-all ml-2">This Token on Presale now!</p>
+                                                <p id="contractAddress" className="pr-4 text-lg font-medium text-gray-700 break-all ml-2"> 📅 This Token on Presale now!</p>
                                             </div>
                                             :
                                             <div className="break-all lg:flex">
@@ -212,7 +211,7 @@ function TokenDetails({ token }) {
                                         </div>
 
                                     </div>
-                                    <div className="flex flex-col lg:flex-row gap-4 items-center py-6">
+                                    <div className="flex lg:flex-row gap-4 items-center py-6">
                                         {tokenn?.isPresale == false ?
                                             <div className="flex lg:flex-row flex-col gap-4">
                                                 <div className="flex flex-col ">
@@ -229,7 +228,7 @@ function TokenDetails({ token }) {
                                             </div>
                                             :
                                             <>
-                                                <p className="px-2 py-1 bg-indigo-200 text-gray-500 font-normal rounded-full">Presale</p>
+                                                <p className="px-2 py-1 bg-indigo-200 text-gray-700 font-medium rounded-full">📅 Presale</p>
                                             </>}
                                         <span className="lg:w-px lg:h-10 h-px w-10 bg-gray-300 hidden lg:block" />
                                         <div className="flex flex-col ">
@@ -237,7 +236,7 @@ function TokenDetails({ token }) {
                                             <p className="font-medium dark:text-gray-200 text-sm lg:text-lg">{tokenn?.launchdate}</p>
                                         </div>
                                     </div>
-                                    <div className="small:my-12 my-8 w-3/4 border-dotted border p-6">
+                                    <div className="small:my-12 my-8 w-full border-dotted border p-6">
                                         <p className="whitespace-pre-wrap overflow-hidden font-normal text-gray-500 dark:text-gray-300 text-md">
                                             {tokenn?.token_description}
                                         </p>

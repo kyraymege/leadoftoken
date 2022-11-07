@@ -1,5 +1,5 @@
 const  verify  = require("../middleware/middleware.js") ;
-const { updateToken, deleteToken, getCreatorsTokens, newToken, addWatchList, voteToken, promoted, findToken, unPublicToken, publicToken, getTokenLength, getRandomTokens, getTodaysBestToken, getYesterdaysBestToken, getSearchedToken } = require("../controllers/tokens.js") ;
+const { updateToken, getAllTokensId, deleteToken, getCreatorsTokens, newToken, addWatchList, voteToken, promoted, findToken, unPublicToken, publicToken, getTokenLength, getRandomTokens, getTodaysBestToken, getYesterdaysBestToken, getSearchedToken } = require("../controllers/tokens.js") ;
 const router = require("express").Router();
 
 //CREATE new token
@@ -40,6 +40,9 @@ router.get("/getSearchedToken/:searchTerm", getSearchedToken)
 
 //Get Creator's Tokens
 router.get("/getCreatorsTokens/:user_id", getCreatorsTokens);
+
+//Get All TokensID
+router.get("/getAllTokensId", getAllTokensId);
 
 //Delete Token
 router.delete("/:id",verify, deleteToken)

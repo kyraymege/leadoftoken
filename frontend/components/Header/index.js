@@ -54,23 +54,23 @@ const Header = () => {
 
                             <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-105  cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0">
                                 <Link href="/addToken">
-                                    <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Add Token</h1>
+                                    <h1 className='hover:underline hover:underline-offset-8 hover:decoration-wavy hover:decoration-indigo-400'>Add Token</h1>
                                 </Link>
                             </li>
                             <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-105 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
                                 <Link href="/project-articles">
-                                    <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Project Articles</h1>
+                                    <h1 className='hover:underline hover:underline-offset-8 hover:decoration-wavy hover:decoration-indigo-400'>Project Articles</h1>
                                 </Link>
                             </li>
                             <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-105 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
                                 <Link href="/contact">
-                                    <h1 className='underline underline-offset-8 decoration-double decoration-indigo-400'>Contact</h1>
+                                    <h1 className='hover:underline hover:underline-offset-8 hover:decoration-wavy hover:decoration-indigo-400'>Contact</h1>
                                 </Link>
                             </li>
                             {currentUser == null ?
                                 <li className="text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-105 cursor-pointer text-base font-medium lg:text-xl pt-10 md:pt-0 md:ml-5 lg:ml-10">
                                     <Link href="/auth">
-                                        <h1 className='lg:hidden underline underline-offset-8 decoration-double decoration-indigo-400'>Sign In</h1>
+                                        <h1 className='lg:hidden underline underline-offset-8 decoration-wavy decoration-indigo-400'>Sign In</h1>
                                     </Link>
                                 </li>
                                 :
@@ -88,7 +88,14 @@ const Header = () => {
                         <UserAvatar />
                     </div>
                     :
-                    <button onClick={() => router.push("/auth")} className="focus:outline-none lg:text-lg lg:font-bold focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 hidden md:block bg-transparent transition duration-150 ease-in-out hover:bg-tertiary rounded border border-indigo-700 text-indigo-700 px-4 sm:px-8 py-1 sm:py-3 text-sm">Sign In</button>
+                    <button onClick={() => router.push("/auth")} className="relative lg:inline-block text-lg group hidden">
+                        <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-indigo-700 rounded-lg group-hover:text-white">
+                            <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
+                            <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-indigo-700 group-hover:-rotate-180 ease"></span>
+                            <span className="relative">Sign In</span>
+                        </span>
+                        <span className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-indigo-700 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
+                    </button>
                 }
 
             </div>

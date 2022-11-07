@@ -43,6 +43,7 @@ function TokenListTable() {
         } catch (error) {
             console.log(error)
         }
+    
     }, [router.query.p, router.query.as])
 
 
@@ -65,29 +66,29 @@ function TokenListTable() {
                                 <div className="absolute inset-0 m-auto mr-4 z-0 w-6 h-6">
                                 </div>
                                 <select aria-label="Selected tab" className="form-select block w-full p-3 border border-gray-300 rounded text-gray-600 appearance-none bg-transparent relative z-10">
-                                    <option className="text-sm text-gray-600">All Time Best </option>
-                                    <option className="text-sm text-gray-600">Today&apos;s Best </option>
-                                    <option className="text-sm text-gray-600">Presales </option>
-                                    <option className="text-sm text-gray-600">Recently Listed </option>
+                                    <option className="text-sm text-gray-600">🏆 All Time Best </option>
+                                    <option className="text-sm text-gray-600">🚀 Today&apos;s Best </option>
+                                    <option className="text-sm text-gray-600">📅 Presales </option>
+                                    <option className="text-sm text-gray-600">🤙🏻 Recently Listed </option>
                                 </select>
                             </div>
                             <div className="justify-between flex-wrap hidden sm:block bg-tertiary dark:bg-[#313131]  rounded-xl shadow-xl ">
                                 <div className="xl:w-full pl-5 pr-5 h-full">
                                     <ul className="flex">
                                         <li onClick={() => { setActiveStatus(1); router.push("/?p=1&as=1") }} className={activeStatus == 1 ? "text-xl text-indigo-700 dark:text-white flex flex-col justify-between border-indigo-700 pt-3 rounded-t mr-10 font-medium" : "text-xl text-gray-600 py-3 mr-10 font-medium cursor-pointer hover:text-gray-800 dark:hover:text-gray-400"}>
-                                            <span className="mb-3 cursor-pointer">All Time Best</span>
+                                            <span className="mb-3 cursor-pointer">🏆 All Time Best</span>
                                             {activeStatus == 1 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
                                         </li>
                                         <li onClick={() => { setActiveStatus(2); router.push("/?p=1&as=2") }} className={activeStatus == 2 ? "text-xl text-indigo-700 dark:text-white flex flex-col justify-between border-indigo-700 pt-3 rounded-t mr-10 font-medium" : "text-xl text-gray-600 py-3 mr-10 font-medium cursor-pointer hover:text-gray-800 dark:hover:text-gray-400"}>
-                                            <span className="mb-3 cursor-pointer">Today&apos;s Best</span>
+                                            <span className="mb-3 cursor-pointer">🚀 Today&apos;s Best</span>
                                             {activeStatus == 2 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
                                         </li>
                                         <li onClick={() => { setActiveStatus(3); router.push("/?p=1&as=3") }} className={activeStatus == 3 ? "text-xl text-indigo-700 dark:text-white flex flex-col justify-between border-indigo-700 pt-3 rounded-t mr-10 font-medium" : "text-xl text-gray-600 py-3 mr-10 font-medium cursor-pointer hover:text-gray-800 dark:hover:text-gray-400"}>
-                                            <span className="mb-3 cursor-pointer">Presales</span>
+                                            <span className="mb-3 cursor-pointer">📅 Presales</span>
                                             {activeStatus == 3 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
                                         </li>
                                         <li onClick={() => { setActiveStatus(4); router.push("/?p=1&as=4") }} className={activeStatus == 4 ? "text-xl text-indigo-700 dark:text-white flex flex-col justify-between border-indigo-700 pt-3 rounded-t mr-10 font-medium" : "text-xl text-gray-600 py-3 mr-10 font-medium cursor-pointer hover:text-gray-800 dark:hover:text-gray-400"}>
-                                            <span className="mb-3 cursor-pointer">Recently Listed</span>
+                                            <span className="mb-3 cursor-pointer">🤙🏻 Recently Listed</span>
                                             {activeStatus == 4 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
                                         </li>
                                     </ul>
@@ -95,7 +96,7 @@ function TokenListTable() {
                             </div>
                             <div className="border border-gray-300 relative dark:border-gray-700">
                                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
-                                <img className='lg:max-w-2xl max-w-sm h-full relative' src='https://cdn.coinmooner.com/mooners/1022x115_EN_[around-the-world-adventure].jpg' alt='ad' />
+                                <img className='lg:max-w-xl max-w-sm h-full relative' src='https://cdn.coinmooner.com/mooners/1022x115_EN_[around-the-world-adventure].jpg' alt='ad' />
                             </div>
                             {/* {isFetching ?
                                 <div className='flex items-center mx-auto'>
@@ -166,12 +167,23 @@ function TokenListTable() {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)} >
-                                                    <p className="text-sm font-medium leading-none text-gray-800 dark:text-gray-200 dark:hover:text-white">$ {token?.token_price}</p>
-                                                </td>
-                                                <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)}>
-                                                    <p className="font-medium dark:text-gray-200 dark:hover:text-white">${token?.token_marketcap}</p>
-                                                </td>
+                                                {!token?.isPresale ?
+                                                    <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)} >
+                                                        <p className="text-sm font-medium leading-none text-gray-800 dark:text-gray-200 dark:hover:text-white">$ {token?.token_price}</p>
+                                                    </td>
+                                                    :
+                                                    <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)} >
+                                                        <p className="text-xl font-bold leading-none ml-2 text-gray-800 dark:text-gray-200 dark:hover:text-white">-</p>
+                                                    </td>
+                                                }
+                                                {!token?.isPresale ?
+                                                    <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)}>
+                                                        <p className="font-medium dark:text-gray-200 dark:hover:text-white">${token?.token_marketcap}</p>
+                                                    </td>
+                                                    :
+                                                    <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)}>
+                                                        <p className="font-medium dark:text-gray-200 dark:hover:text-white">📅 On Presale</p>
+                                                    </td>}
                                                 {activeStatus == 4 ?
                                                     <>
                                                         <td className="hidden lg:table-cell" onClick={() => router.push("/token/" + token?._id)} >
