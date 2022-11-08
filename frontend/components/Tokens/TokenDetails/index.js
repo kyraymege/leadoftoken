@@ -6,7 +6,9 @@ import { FiTwitter, FiInstagram, } from "react-icons/fi";
 import { GiMagnifyingGlass } from "react-icons/gi"
 import { FaTelegramPlane } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si"
-import { FcClock } from "react-icons/fc"
+import { FaEthereum } from "react-icons/fa";
+import { BiPolygon } from "react-icons/bi";
+import { SiBinance } from "react-icons/si";
 import { addWatchList, fetchRandomTokens, fetchToken, voteToken } from "../../../redux/apiCalls";
 import { useSelector } from 'react-redux';
 import { toast } from "react-toastify"
@@ -70,8 +72,8 @@ function TokenDetails({ token }) {
         axios(options)
             .then((res) => {
                 // handle success
-                setChart(res?.data[0]);
-                console.log
+                setChart(res?.data[0]);   
+                console.log(res?.data[0])             
             })
             .catch((err) => {
                 // handle error
@@ -83,7 +85,6 @@ function TokenDetails({ token }) {
         fetchToken(token).then((res) => {
             setTokenn(res?.data)
             getData(res?.data?.token_contractAddress)
-
         })
 
         fetchRandomTokens().then((res) => {
@@ -141,9 +142,20 @@ function TokenDetails({ token }) {
                             </div>
                             <div className="w-full items-start flex  p-6  justify-between">
                                 <div className="flex flex-col">
-                                    <div className="w-full items-start flex lg:flex-row flex-col gap-x-6">
+                                    <div className="w-full items-center flex lg:flex-row flex-col gap-x-6">
                                         <h1 className="text-2xl lg:text-2xl font-bold text-gray-900 dark:text-white">{tokenn?.token_name}</h1>
                                         <p className="text-xl lg:text-3xl font-thin mt-1 text-gray-400">${tokenn?.token_symbol}</p>
+                                        <span>
+                                        {tokenn?.token_network == "BSC" && tokenn?.isPresale == false &&
+                                            <SiBinance className="fill-yellow-500 " size={30}/>
+                                        }
+                                        {tokenn?.token_network == "ETH" && tokenn?.isPresale == false &&
+                                            <FaEthereum className="fill-blue-500 " size={30}/>
+                                        }
+                                        {tokenn?.token_network == "polygon" && tokenn?.isPresale == false &&
+                                            <BiPolygon className="fill-indigo-500 " size={30}/>
+                                        }
+                                        </span>
                                         <span className="w-px h-10 bg-gray-300 hidden lg:block" />
                                         <div onClick={handleWatchList} className="flex items-center gap-4">
                                             <AiTwotoneStar className="mt-2 hover:fill-yellow-300 fill-gray-300 cursor-pointer" size={30} />
@@ -215,7 +227,7 @@ function TokenDetails({ token }) {
                                         {tokenn?.isPresale == false ?
                                             <div className="flex lg:flex-row flex-col gap-4">
                                                 <div className="flex flex-col ">
-                                                    <p className="text-gray-400 text-sm lg:text-lg">Price <span className={toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd) < 0 ? 'text-green-500' : 'text-red-500'}>% {((toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd)) / toFixed(chart?.priceUsd) * 100).toFixed(2)}</span></p>
+                                                    <p className="text-gray-400 text-sm lg:text-lg">Price <span className={toFixed(chart?.priceUsd24hAgo) - toFixed(chart?.priceUsd) <= 0 ? 'text-green-500' : 'text-red-500'}>% {(100 * Math.abs( ( (chart?.priceUsd24hAgo) - (chart?.priceUsd) ) / ( ((chart?.priceUsd24hAgo)+(chart?.priceUsd))/2 ) )).toFixed(2)}</span></p>
                                                     {chart == undefined ?
                                                         <p className="font-medium dark:text-white lg:text-lg text-sm">${tokenn?.token_price}</p> : <p className="font-medium lg:text-lg text-sm">${toFixed(chart?.priceUsd)}</p>}
                                                 </div>

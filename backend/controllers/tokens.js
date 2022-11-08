@@ -64,6 +64,7 @@ const publicToken = async (req, res) => {
             token_symbol: "$token_symbol",
             launchdate: "$launchdate",
             createdAt: "$createdAt",
+            token_network : "$token_network",
             isPresale: "$isPresale",
             vote: { $size: "$vote" },
 
@@ -126,6 +127,7 @@ const publicToken = async (req, res) => {
             launchdate: "$launchdate",
             token_symbol: "$token_symbol",
             createdAt: "$createdAt",
+            token_network : "$token_network",
             isPresale: "$isPresale",
             vote: { $size: "$vote" },
 
@@ -163,6 +165,7 @@ const publicToken = async (req, res) => {
             token_price: "$token_price",
             token_symbol: "$token_symbol",
             launchdate: "$launchdate",
+            token_network : "$token_network",
             isPresale: "$isPresale",
             vote: { $size: "$vote" },
 
@@ -201,6 +204,7 @@ const publicToken = async (req, res) => {
             launchdate: "$launchdate",
             token_symbol: "$token_symbol",
             vote: { $size: "$vote" },
+            token_network : "$token_network",
             isPresale: "$isPresale",
             createdAt: "$createdAt"
 
@@ -238,6 +242,8 @@ const publicToken = async (req, res) => {
             token_marketcap: "$token_marketcap",
             token_price: "$token_price",
             token_symbol: "$token_symbol",
+            token_network : "$token_network",
+            isPresale: "$isPresale",
             launchdate: "$launchdate",
             vote: { $size: "$vote" },
 
@@ -603,7 +609,6 @@ const getAllTokensId = async (req, res) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 module.exports = { updateToken, getAllTokensId, deleteToken, getCreatorsTokens, newToken, publicToken, getTokenLength, getRandomTokens, unPublicToken, promoted, findToken, voteToken, addWatchList, getTodaysBestToken, getYesterdaysBestToken, getSearchedToken }

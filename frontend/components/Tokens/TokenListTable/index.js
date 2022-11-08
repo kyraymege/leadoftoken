@@ -8,6 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
 import { Pagination } from "react-pagination-bar"
 import 'react-pagination-bar/dist/index.css'
+import { FaEthereum } from "react-icons/fa";
+import { BiPolygon } from "react-icons/bi";
+import { SiBinance } from "react-icons/si";
 import { PF } from "../../../redux/requestMethods"
 
 function TokenListTable() {
@@ -43,7 +46,7 @@ function TokenListTable() {
         } catch (error) {
             console.log(error)
         }
-    
+
     }, [router.query.p, router.query.as])
 
 
@@ -163,7 +166,20 @@ function TokenListTable() {
                                                         </div>
                                                         <div className="pl-4">
                                                             <p className="font-medium dark:text-gray-200 dark:hover:text-white">{token?.token_name}</p>
-                                                            <p className="text-xs leading-3 text-gray-600 pt-2 dark:text-gray-400 dark:hover:text-white">${token?.token_symbol}</p>
+                                                            <span className="flex items-center gap-x-2">
+                                                                <p className="text-xs leading-3 text-gray-600 pt-2 dark:text-gray-400 dark:hover:text-white">${token?.token_symbol}</p>
+                                                                <span className="mt-2">
+                                                                    {token?.token_network == "BSC" && token?.isPresale == false &&
+                                                                        <SiBinance className="fill-yellow-500 " size={18} />
+                                                                    }
+                                                                    {token?.token_network == "ETH" && token?.isPresale == false &&
+                                                                        <FaEthereum className="fill-blue-500 " size={18} />
+                                                                    }
+                                                                    {token?.token_network == "polygon" && token?.isPresale == false &&
+                                                                        <BiPolygon className="fill-indigo-500 " size={18} />
+                                                                    }
+                                                                </span>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </td>
