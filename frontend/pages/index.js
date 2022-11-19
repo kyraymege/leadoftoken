@@ -11,6 +11,7 @@ import { getCookie } from 'cookies-next';
 import AdSection from "../components/Tokens/AdSection";
 import Announcements from "../components/Announcements";
 import Meta from "../components/Meta/Meta";
+import Script from 'next/script'
 
 function Home() {
     const dispatch = useDispatch();
@@ -27,6 +28,19 @@ function Home() {
 
     return (
         <div className="flex flex-col ">
+            <Script
+                src="https://www.googletagmanager.com/gtag/js?id=G-937NFKF9VG"
+                strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){window.dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'G-937NFKF9VG');
+                    `}
+            </Script>
             <Meta
                 title="Lead Of Token | Token Listings"
                 description="Lead Of Token is a token voting site where you can vote for your favorite tokens and coins."

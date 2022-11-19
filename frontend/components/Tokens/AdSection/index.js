@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getYesterdaysBestToken } from '../../../redux/apiCalls'
 import { PF } from '../../../redux/requestMethods'
 import HorizontalMostClaps from './HorizontalMostClaps'
+import { useRouter } from 'next/router'
 
 const AdSection = () => {
     const [yesterdayBest, setYesterdayBest] = useState()
@@ -10,6 +11,7 @@ const AdSection = () => {
             setYesterdayBest(res?.data);
         })
     }, [])
+    const router = useRouter();
 
     return (
         <div className='container py-6 flex flex-col lg:items-center justify-center lg:flex-row gap-y-10 gap-x-20'>
@@ -32,7 +34,7 @@ const AdSection = () => {
                         </div>
                         <div className="h-1 w-20 bg-indigo-500 rounded"></div>
                     </div>
-                    <div className='flex gap-x-6 items-center'>
+                    <div onClick={()=>{router.push("/token/"+yesterdayBest?._id)}}  className='flex gap-x-6 items-center cursor-pointer'>
                         <img className='w-24 rounded-full' loading='lazy' src={PF + yesterdayBest?.token_image} alt='yesterday best token logo' />
                         <h1 className='text-xl font-bold dark:text-gray-400 text-gray-800 break-all'>{yesterdayBest?.token_name}</h1>
                     </div>
