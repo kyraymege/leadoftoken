@@ -41,6 +41,8 @@ function Home() {
                     gtag('config', 'G-937NFKF9VG');
                     `}
             </Script>
+            <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1438992172560378"
+                crossorigin="anonymous"></Script>
             <Meta
                 title="Lead Of Token | Token Listings"
                 description="Lead Of Token is a token voting site where you can vote for your favorite tokens and coins."
