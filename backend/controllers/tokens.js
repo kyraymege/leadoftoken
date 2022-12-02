@@ -38,7 +38,7 @@ const newToken = async (req, res) => {
 const publicToken = async (req, res) => {
   const page = req.query.page || 0;
   const as = req.query.as === undefined ? 1 : req.query.as;
-  const tokensPerPage = 5;
+  const tokensPerPage = 10;
   switch (as) {
     case "1":
       Token.aggregate([

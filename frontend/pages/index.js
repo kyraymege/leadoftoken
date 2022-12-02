@@ -58,10 +58,10 @@ function Home() {
                 <ToastContainer />
                 <AdSection />
                 <PromotedTokenList />
-                <div onClick={() => router.push("/contact")} className='relative mt-10 container cursor-pointer max-w-sm lg:max-w-7xl'>
+                <a href="https://toon.finance/" target="_blank" className='relative mt-10 container cursor-pointer max-w-sm lg:max-w-7xl'>
                     <div className="absolute -inset-1 bg-gradient-to-r from-indigo-300 via-indigo-700 to-indigo-500 rounded blur animate-pulse" />
-                    <img alt="ad" className='relative' src='https://storage.googleapis.com/coinsniper-assets/images/RCNyaANXFfrDQchhhVFRCZFob9w0c5ctl32QQ6R4.gif' />
-                </div>
+                    <img alt="ad" className='relative' src='https://storage.googleapis.com/coinsniper-assets/images/1mW16iIzVKlpf6U1WMrodYd1WMTDAzLasI9l1jJV.png' />
+                </a>
                 <TokenListTable />
                 <Footer />
 

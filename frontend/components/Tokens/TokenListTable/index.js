@@ -97,10 +97,10 @@ function TokenListTable() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="border border-gray-300 relative dark:border-gray-700">
+                            <a href="https://buy.bigeyes.space/?section=buy" target="_blank" className="border border-gray-300 relative dark:border-gray-700">
                                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
-                                <img className='lg:max-w-xl max-w-sm h-full relative' src='https://cdn.coinmooner.com/mooners/1022x115_EN_[around-the-world-adventure].jpg' alt='ad' />
-                            </div>
+                                <img className='lg:max-w-xl max-w-sm h-full relative' src='https://storage.googleapis.com/coinsniper-assets/images/x20USaGZ4N0nqX3vCtGkZHrivsQ8eMAOALN7tn4n.gif' alt='ad' />
+                            </a>
                             {/* {isFetching ?
                                 <div className='flex items-center mx-auto'>
                                     <p className='text-9xl font-extrabold text-indigo-700 animate-bounce'>L</p>
@@ -235,7 +235,7 @@ function TokenListTable() {
                         <div className="flex justify-center items-center mt-6">
                             <Pagination
                                 totalItems={tokenLength}
-                                itemsPerPage={5}
+                                itemsPerPage={10}
                                 pageNeighbours={1}
                                 withProgressBar={true}
                                 onPageСhange={(currentPage) => { router.push("/?p=" + currentPage + "&as=" + router.query.as); }}

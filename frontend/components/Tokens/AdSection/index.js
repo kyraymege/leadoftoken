@@ -20,10 +20,10 @@ const AdSection = () => {
                 <HorizontalMostClaps />
             </div>
             <div className=' px-6'>
-                <div className='flex relative w-full justify-center container border dark:border-gray-700 border-gray-300 shadow-2xl shadow-gray-400 dark:shadow-gray-800 rounded-2xl bg-secondary dark:bg-[#252525]'>
+                <a href='https://reefertoken.io/' target="_blank" className='flex relative w-full justify-center container border dark:border-gray-700 border-gray-300 shadow-2xl shadow-gray-400 dark:shadow-gray-800 rounded-2xl bg-secondary dark:bg-[#252525]'>
                     <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
-                    <img className='object-contain rounded-xl relative lg:max-w-md' src='/new.jpg' alt='new' />
-                </div>
+                    <img className='object-contain rounded-xl relative lg:max-w-lg' src='/news.gif' alt='new' />
+                </a>
             </div>
             <div className='lg:w-1/4 relative h-56'>
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-400 to-indigo-700 rounded blur animate-pulse " />
