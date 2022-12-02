@@ -58,7 +58,7 @@ function Home() {
                 <ToastContainer />
                 <AdSection />
                 <PromotedTokenList />
-                <a href="https://toon.finance/" target="_blank" className='relative mt-10 container cursor-pointer max-w-sm lg:max-w-7xl'>
+                <a href="https://toon.finance/" rel="noreferrer" target="_blank" className='relative mt-10 container cursor-pointer max-w-sm lg:max-w-7xl'>
                     <div className="absolute -inset-1 bg-gradient-to-r from-indigo-300 via-indigo-700 to-indigo-500 rounded blur animate-pulse" />
                     <img alt="ad" className='relative' src='https://storage.googleapis.com/coinsniper-assets/images/1mW16iIzVKlpf6U1WMrodYd1WMTDAzLasI9l1jJV.png' />
                 </a>
