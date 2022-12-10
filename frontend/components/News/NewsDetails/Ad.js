@@ -15,6 +15,9 @@ const Ad = () => {
         data-ad-slot="5438016209"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
+      <Script id='googleAdsense'>
+        (adsbygoogle = window.adsbygoogle || []).push({ });
+      </Script>
     </div>
   )
 }
