@@ -7,7 +7,7 @@ const ad = () => {
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1438992172560378"
         crossorigin="anonymous"></Script>
       <ins className="adsbygoogle"
-        style="display:block"
+        style={{ display: 'block' }}
         data-ad-client="ca-pub-1438992172560378"
         data-ad-slot="5438016209"
         data-ad-format="auto"
