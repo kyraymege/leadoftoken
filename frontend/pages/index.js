@@ -28,6 +28,8 @@ function Home() {
 
     return (
         <div className="flex flex-col ">
+            <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1438992172560378"
+                crossorigin="anonymous"></Script>
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=G-937NFKF9VG"
                 strategy="afterInteractive"
